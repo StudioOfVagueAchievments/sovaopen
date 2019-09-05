@@ -60,7 +60,7 @@ $(function(){
             ctx.strokeRect(value.x, value.y, snakeWidth, snakeHeight);
             if (index == 0) {
                 if (collided(value.x, value.y)) {
-                    gameOver();
+                    gameOver(score);
                 }
                 if (didEatFood(value.x, value.y)) {
                     score += 10;
@@ -121,9 +121,11 @@ $(function(){
         return key;
     }
 
-    function gameOver() {
+    function gameOver(score) {
         clearInterval(game);
-        alert('GameOver');
+        alert('GameOver...\nYour score is: '+ score);
+        var gameOverLink = document.getElementById('buttonlink');
+        window.location.href='https://studioofvagueachievments.github.io/sovaopen/index.html';
     }
 
     function getNewPositionForFood() {
@@ -160,5 +162,4 @@ $(function(){
         result = (result % 10 == 0) ? result : result + (multipleOf - result % 10);
         return result;
     }
-
 });
