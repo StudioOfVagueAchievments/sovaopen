@@ -1,9 +1,16 @@
 body {
     background-color: #000;
 }
+
 #container {
     text-align: center;
 }
+
+canvas {
+   width: 1280px;
+   height: 853px;
+}
+
 
 #canvas {
     background-color: #000;
