@@ -57,72 +57,11 @@
 		color: #317ef3;
 	}
 
-	.button_line {
-		display: block;
-		position: relative;
-	}
-
-	.button_line-top {
-		top: -35px;
-		left: -120%;
-		height: 3px;
-		width: 100%;
-		background: linear-gradient(90deg, transparent, #317ef3);
-	}
-
-	.button:hover .button_line-top {
-		left: 120%;
-		transition: 1s;
-		transition-delay: 0.25s;
-	}
-
-	.button_line-bottom {
-		bottom: 10px;
-		right: -120%;
-		height: 3px;
-		width: 100%;
-		background: linear-gradient(270deg, transparent, #317ef3);
-	}
-
-	.button:hover .button_line-bottom {
-		right: 120%;
-		transition: 1s;
-		transition-delay: 0.25s;
-	}
-
-	.button_line-left {
-		bottom: -100%;
-		left: -30px;
-		height: 100%;
-		width: 3px;
-		background: linear-gradient(0deg, transparent, #317ef3);
-	}
-
-	.button:hover .button_line-left {
-		bottom: 360%;
-		transition: 1s;
-		transition-delay: 0s;
-	}
-
-	.button_line-right {
-		top: -200%;
-		right: -165px;
-		height: 100%;
-		width: 3px;
-		background: linear-gradient(180deg, transparent, #317ef3);
-	}
-
-	.button:hover .button_line-right {
-		top: 300%;
-		transition: 1s;
-		transition-delay: 0s;
-	}
-
 	.button:hover {
-		box-shadow: 0 0 10px #317ef3, 0 0 35px #317ef3, 0 0 75px #317ef3;
+		box-shadow: 0 0 10px #317ef3, 0 0 20px #317ef3;
 		background: #317ef3;
 		color: #000;
-		transition-delay: 1s;
+		transition-delay: .2s;
 	}
 
 	i {
@@ -189,72 +128,11 @@
 		color: #317ef3;
 	}
 
-	.button_line {
-		display: block;
-		position: relative;
-	}
-
-	.button_line-top {
-		top: -55px;
-		left: -120%;
-		height: 3px;
-		width: 100%;
-		background: linear-gradient(90deg, transparent, #317ef3);
-	}
-
-	.button:hover .button_line-top {
-		left: 120%;
-		transition: 1s;
-		transition-delay: 0.25s;
-	}
-
-	.button_line-bottom {
-		bottom: 32px;
-		right: -120%;
-		height: 3px;
-		width: 100%;
-		background: linear-gradient(270deg, transparent, #317ef3);
-	}
-
-	.button:hover .button_line-bottom {
-		right: 120%;
-		transition: 1s;
-		transition-delay: 0.25s;
-	}
-
-	.button_line-left {
-		bottom: -100%;
-		left: -30px;
-		height: 100%;
-		width: 3px;
-		background: linear-gradient(0deg, transparent, #317ef3);
-	}
-
-	.button:hover .button_line-left {
-		bottom: 360%;
-		transition: 1s;
-		transition-delay: 0s;
-	}
-
-	.button_line-right {
-		top: -260%;
-		right: -265px;
-		height: 100%;
-		width: 3px;
-		background: linear-gradient(180deg, transparent, #317ef3);
-	}
-
-	.button:hover .button_line-right {
-		top: 300%;
-		transition: 1s;
-		transition-delay: 0s;
-	}
-
 	.button:hover {
-		box-shadow: 0 0 10px #317ef3, 0 0 45px #317ef3, 0 0 85px #317ef3;
+		box-shadow: 0 0 10px #317ef3, 0 0 30px #317ef3;
 		background: #317ef3;
 		color: #000;
-		transition-delay: 1s;
+		transition-delay: .2s;
 	}
 
 	i {
@@ -321,72 +199,11 @@
 		color: #317ef3;
 	}
 
-	.button_line {
-		display: block;
-		position: relative;
-	}
-
-	.button_line-top {
-		top: -57px;
-		left: -110%;
-		height: 3px;
-		width: 100%;
-		background: linear-gradient(90deg, transparent, #317ef3);
-	}
-
-	.button:hover .button_line-top {
-		left: 100%;
-		transition: 1s;
-		transition-delay: 0.25s;
-	}
-
-	.button_line-bottom {
-		bottom: 33px;
-		right: -110%;
-		height: 3px;
-		width: 100%;
-		background: linear-gradient(270deg, transparent, #317ef3);
-	}
-
-	.button:hover .button_line-bottom {
-		right: 100%;
-		transition: 1s;
-		transition-delay: 0.25s;
-	}
-
-	.button_line-left {
-		bottom: -100%;
-		left: -30px;
-		height: 100%;
-		width: 3px;
-		background: linear-gradient(0deg, transparent, #317ef3);
-	}
-
-	.button:hover .button_line-left {
-		bottom: 350%;
-		transition: 1s;
-		transition-delay: 0s;
-	}
-
-	.button_line-right {
-		top: -225%;
-		right: -365px;
-		height: 100%;
-		width: 3px;
-		background: linear-gradient(180deg, transparent, #317ef3);
-	}
-
-	.button:hover .button_line-right {
-		top: 220%;
-		transition: 1s;
-		transition-delay: 0s;
-	}
-
 	.button:hover {
-		box-shadow: 0 0 10px #317ef3, 0 0 45px #317ef3, 0 0 85px #317ef3;
+		box-shadow: 0 0 10px #317ef3, 0 0 40px #317ef3;
 		background: #317ef3;
 		color: #000;
-		transition-delay: 1s;
+		transition-delay: .2s;
 	}
 
 	i {
