@@ -18,6 +18,11 @@ $(function(){
     const RIGHT = 39;
     const DOWN = 40;
 
+    const W = 87;
+    const A = 65;
+    const S = 83;
+    const D = 68;
+
     var keyPressed = DOWN;
     var score = 0;
     var game;
