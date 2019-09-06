@@ -6,10 +6,10 @@ body {
     text-align: center;
 }
 
-/*canvas {*/
-/*    width: 1280px;*/
-/*    height: 853px;*/
-/*}*/
+canvas {
+   width: 1280px;
+   height: 853px;
+}
 
 
 #canvas {
