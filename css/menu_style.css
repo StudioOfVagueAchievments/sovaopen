@@ -56,15 +56,20 @@
 	}
 
 	.btn:hover {
-		color: #317ef3;
+		color: #fff;
 	}
 
 	.button:hover {
 		box-shadow: 0 0 10px #fff, 0 0 30px #fff;
+		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
+		transition-delay: .05s;
+	}
+
+	.button:hover {
 		background: #fff;
 		color: #000;
-		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
-		transition-delay: .1s;
+		font-size: 13pt;
+		transition-delay: 2s;
 	}
 
 	i {
@@ -130,15 +135,20 @@
 	}
 
 	.btn:hover {
-		color: #317ef3;
+		color: #fff;
 	}
 
 	.button:hover {
 		box-shadow: 0 0 10px #fff, 0 0 40px #fff;
+		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
+		transition-delay: .05s;
+	}
+
+	.button:hover {
 		background: #fff;
 		color: #000;
-		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
-		transition-delay: .1s;
+		font-size: 18pt;
+		transition-delay: 2s;
 	}
 
 	i {
@@ -204,7 +214,7 @@
 	}
 
 	.btn:hover {
-		color: #317ef3;
+		color: #fff;
 	}
 
 	.button:hover {
