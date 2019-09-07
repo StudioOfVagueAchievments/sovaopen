@@ -32,7 +32,7 @@
 	/* Buttons */
 	.btn {
 		display: block;
-		height: 80px;
+		height: 60px;
 		width: 200px;
 		color: #000;
 		border: 2px solid #fff;
@@ -40,7 +40,7 @@
 		text-align: center;
 		vertical-align: middle;
 		line-height: 30px;
-		font-size: 10pt;
+		font-size: 10px;
 	}
 
 	.button {
