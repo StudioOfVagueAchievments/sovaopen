@@ -60,11 +60,11 @@
 	}
 
 	.button:hover {
-		box-shadow: 0 0 10px #317ef3, 0 0 20px #317ef3;
-		background: #317ef3;
+		box-shadow: 0 0 10px #fff, 0 0 30px #fff;
+		background: #fff;
 		color: #000;
 		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
-		transition-delay: .2s;
+		transition-delay: .1s;
 	}
 
 	i {
@@ -134,11 +134,11 @@
 	}
 
 	.button:hover {
-		box-shadow: 0 0 10px #317ef3, 0 0 30px #317ef3;
-		background: #317ef3;
+		box-shadow: 0 0 10px #fff, 0 0 40px #fff;
+		background: #fff;
 		color: #000;
 		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
-		transition-delay: .2s;
+		transition-delay: .1s;
 	}
 
 	i {
@@ -209,10 +209,10 @@
 
 	.button:hover {
 		box-shadow: 0 0 10px #fff, 0 0 50px #fff;
-		background: #317ef3;
+		background: #fff;
 		color: #000;
 		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
-		transition-delay: .2s;
+		transition-delay: .1s;
 	}
 
 	i {
