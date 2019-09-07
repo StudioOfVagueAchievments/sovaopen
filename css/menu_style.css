@@ -208,7 +208,7 @@
 	}
 
 	.button:hover {
-		box-shadow: 0 0 10px #317ef3, 0 0 40px #317ef3;
+		box-shadow: 0 0 10px #fff, 0 0 50px #fff;
 		background: #317ef3;
 		color: #000;
 		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
