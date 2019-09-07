@@ -1,5 +1,6 @@
 /* Extra Small devices (landscape phones, 310px and up) */
 @media (min-width: 310px) {
+
 	html,
 	body {
 		display: flex;
@@ -34,6 +35,7 @@
 		height: 60px;
 		width: 200px;
 		color: #317ef3;
+		border: 2px solid #fff;
 		border-radius: 10px;
 		text-align: center;
 		vertical-align: middle;
@@ -44,12 +46,12 @@
 	.button {
 		display: inline-block;
 		position: relative;
+		border: 2px solid #fff;
 		padding: 15px 30px;
 		text-transform: uppercase;
 		text-decoration: none;
 		letter-spacing: 2px;
 		line-height: 8px;
-		overflow: hidden;
 		transition: .5s
 	}
 
@@ -72,6 +74,7 @@
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
+
 	html,
 	body {
 		display: flex;
@@ -106,6 +109,7 @@
 		height: 70px;
 		width: 300px;
 		color: #317ef3;
+		border: 2px solid #fff;
 		border-radius: 10px;
 		text-align: center;
 		vertical-align: middle;
@@ -116,12 +120,12 @@
 	.button {
 		display: inline-block;
 		position: relative;
+		border: 2px solid #fff;
 		padding: 15px 30px;
 		text-transform: uppercase;
 		text-decoration: none;
 		letter-spacing: 3px;
 		line-height: 41px;
-		overflow: hidden;
 		transition: .5s
 	}
 
@@ -144,6 +148,7 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+
 	html,
 	body {
 		display: flex;
@@ -178,6 +183,7 @@
 		height: 80px;
 		width: 400px;
 		color: #317ef3;
+		border: 2px solid #fff;
 		border-radius: 10px;
 		text-align: center;
 		vertical-align: middle;
@@ -188,12 +194,12 @@
 	.button {
 		display: inline-block;
 		position: relative;
+		border: 2px solid #fff;
 		padding: 15px 30px;
 		text-transform: uppercase;
 		text-decoration: none;
 		letter-spacing: 4px;
 		line-height: 40px;
-		overflow: hidden;
 		transition: .5s
 	}
 
