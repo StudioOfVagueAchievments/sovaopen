@@ -68,6 +68,7 @@
 		background: #fff;
 		color: #000;
 		font-size: 13pt;
+		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
 		transition-delay: .3s;
 	}
 }
@@ -130,7 +131,6 @@
 	}
 
 	.btn:hover {
-		color: #fff;
 		box-shadow: 0 0 10px #fff, 0 0 40px #fff;
 		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
 	}
@@ -139,6 +139,7 @@
 		background: #fff;
 		color: #000;
 		font-size: 18pt;
+		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
 		transition-delay: .3s;
 	}
 }
@@ -201,7 +202,6 @@
 	}
 
 	.btn:hover {
-		color: #fff;
 		box-shadow: 0 0 10px #fff, 0 0 50px #fff;
 		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
 	}
@@ -210,6 +210,7 @@
 		background: #fff;
 		color: #000;
 		font-size: 18pt;
+		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
 		transition-delay: .3s;
 	}
 }
