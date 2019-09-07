@@ -182,13 +182,13 @@
 		display: block;
 		height: 80px;
 		width: 400px;
-		color: #fff;
+		color: #3288ff;
 		border: 2px solid #fff;
 		border-radius: 10px;
 		text-align: center;
 		vertical-align: middle;
 		line-height: 60px;
-		font-size: 18pt;
+		font-size: 15pt;
 	}
 
 	.button {
@@ -211,6 +211,7 @@
 		box-shadow: 0 0 10px #fff, 0 0 50px #fff;
 		background: #fff;
 		color: #000;
+		font-size: 15pt;
 		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
 		transition-delay: .1s;
 	}
