@@ -214,9 +214,6 @@
 
 	.btn:hover {
 		color: #fff;
-	}
-
-	.button:hover {
 		box-shadow: 0 0 10px #fff, 0 0 50px #fff;
 		transition: 0.2s cubic-bezier(0.76, 0.01, 0.45, 0.94);
 	}
@@ -225,7 +222,7 @@
 		background: #fff;
 		color: #000;
 		font-size: 18pt;
-		transition-delay: 1s;
+		transition-delay: .5s;
 	}
 
 	i {
