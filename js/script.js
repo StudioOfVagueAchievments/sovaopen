@@ -11,38 +11,62 @@ $(function() {
 	canvas.height = 507;
 
 	document.getElementById('left').addEventListener('click', function() {
-	   keyPressed = LEFT;
+	    let e = LEFT;
+	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+		keyPressed = checkKeyIsAllowed(e);
+	    }
 	}, false);
 
 	document.getElementById('right').addEventListener('click', function() {
-	   keyPressed = RIGHT;
+	    let e = RIGHT;
+	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+		keyPressed = checkKeyIsAllowed(e);
+	    }
 	}, false);
 
 	document.getElementById('up').addEventListener('click', function() {
-	   keyPressed = UP;
+	    let e = UP;
+	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+		keyPressed = checkKeyIsAllowed(e);
+	    }
 	}, false);
 
 	document.getElementById('down').addEventListener('click', function() {
-	   keyPressed = DOWN;
+	   let e = DOWN;
+	   if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+	       keyPressed = checkKeyIsAllowed(e);
+	   }
 	}, false);
     } else if ($(window).width() > 310) {
 	canvas.width = 280;
 	canvas.height = 407;
 
 	document.getElementById('left').addEventListener('click', function() {
-	   keyPressed = LEFT;
+	    let e = LEFT;
+	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+		keyPressed = checkKeyIsAllowed(e);
+	    }
 	}, false);
 
 	document.getElementById('right').addEventListener('click', function() {
-	   keyPressed = RIGHT;
+	    let e = RIGHT;
+	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+		keyPressed = checkKeyIsAllowed(e);
+	    }
 	}, false);
 
 	document.getElementById('up').addEventListener('click', function() {
-	   keyPressed = UP;
+	    let e = UP;
+	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+		keyPressed = checkKeyIsAllowed(e);
+	    }
 	}, false);
 
 	document.getElementById('down').addEventListener('click', function() {
-	   keyPressed = DOWN;
+	    let e = DOWN;
+	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+		keyPressed = checkKeyIsAllowed(e);
+	    }
 	}, false);
     }
 
