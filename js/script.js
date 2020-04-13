@@ -4,11 +4,11 @@ $(function() {
 	canvas.width = 1280;
 	canvas.height = 853;
     } else if ($(window).width() > 576) {
-	canvas.width = 680;
+	canvas.width = 580;
 	canvas.height = 707;
     } else if ($(window).width() > 310) {
-	canvas.width = 480;
-	canvas.height = 607;
+	canvas.width = 380;
+	canvas.height = 507;
     }  
 
     var ctx = canvas.getContext('2d');
