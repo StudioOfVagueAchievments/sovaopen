@@ -6,9 +6,12 @@ $(function() {
     } else if ($(window).width() > 576) {
 	canvas.width = 580;
 	canvas.height = 707;
-    } else if ($(window).width() > 310) {
+    } else if ($(window).width() > 410) {
 	canvas.width = 380;
 	canvas.height = 507;
+    } else if ($(window).width() > 310) {
+	canvas.width = 280;
+	canvas.height = 407;
     }  
 
     var ctx = canvas.getContext('2d');
