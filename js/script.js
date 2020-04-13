@@ -1,6 +1,16 @@
-$(function(){
-
+$(function() {
     var canvas = $('#canvas')[0];
+    if ($(window).width() > 1200) {
+	canvas.width = 1280;
+	canvas.height = 853;
+    } else if ($(window).width() > 576) {
+	canvas.width = 680;
+	canvas.height = 253;
+    } else if ($(window).width() > 310) {
+	canvas.width = 480;
+	canvas.height = 53;
+    }  
+
     var ctx = canvas.getContext('2d');
 
     var snake = [
