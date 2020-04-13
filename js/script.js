@@ -5,10 +5,10 @@ $(function() {
 	canvas.height = 853;
     } else if ($(window).width() > 576) {
 	canvas.width = 680;
-	canvas.height = 253;
+	canvas.height = 707;
     } else if ($(window).width() > 310) {
 	canvas.width = 480;
-	canvas.height = 53;
+	canvas.height = 607;
     }  
 
     var ctx = canvas.getContext('2d');
