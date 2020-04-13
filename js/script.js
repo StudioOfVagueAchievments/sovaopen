@@ -8,7 +8,7 @@ $(function(){
         { x: 50, y: 90, oldX: 0, oldY: 0 },
         { x: 50, y: 80, oldX: 0, oldY: 0 },
     ];
-    var food = { x: 200, y: 200, caten: false };
+    var food = { x: 200, y: 200, eaten: false };
 
     var snakeWidth = snakeHeight = 10;
     var blockSize = 10;
@@ -26,28 +26,30 @@ $(function(){
     var keyPressed = DOWN;
     var score = 0;
     var game;
+    var inter = 60;
+    var speed = 0;
 
-    game = setInterval(gameLoop, 60);
+    game = setInterval(gameLoop, inter);
 
     function gameLoop() {
-        clearCanvas();
-        drawFood();
-        moveSnake();
-        drawSnake();
+	clearCanvas();
+	drawFood();
+	moveSnake();
+	drawSnake();
     }
-
     function moveSnake() {
         $.each(snake, function(index, value){
             snake[index].oldX = value.x;
             snake[index].oldY = value.y;
+
             if (index == 0) {
-                if (keyPressed == DOWN){
+                if (keyPressed == DOWN || keyPressed == S) {
                     snake[index].y = value.y + blockSize;
-                } else if (keyPressed == UP) {
+                } else if (keyPressed == UP || keyPressed == W) {
                     snake[index].y = value.y - blockSize;
-                } else if (keyPressed == RIGHT) {
+		} else if (keyPressed == RIGHT || keyPressed == D) {
                     snake[index].x = value.x + blockSize;
-                } else if (keyPressed == LEFT) {
+                } else if (keyPressed == LEFT || keyPressed == A) {
                     snake[index].x = value.x - blockSize;
                 }
             } else {
@@ -61,8 +63,6 @@ $(function(){
         $.each(snake, function(index, value) {
             ctx.fillStyle = 'green';
             ctx.fillRect(value.x, value.y, snakeWidth, snakeHeight);
-            ctx.strokeStyle = 'green';
-            ctx.strokeRect(value.x, value.y, snakeWidth, snakeHeight);
             if (index == 0) {
                 if (collided(value.x, value.y)) {
                     gameOver(score);
@@ -72,6 +72,11 @@ $(function(){
                     $('#score').text(score);
                     makeSnakeBigger();
                     food.eaten = true;
+
+		    speed += 0.8;
+		    inter *= speed;
+
+		    game = setInterval(gameLoop, inter);
                 }
             }
         });
@@ -107,7 +112,7 @@ $(function(){
     }
 
     $(document).keydown(function(e) {
-        if ($.inArray(e.which, [DOWN, UP, LEFT, RIGHT]) != -1) {
+        if ($.inArray(e.which, [DOWN, UP, LEFT, RIGHT, S, W, A, D]) != -1) {
             keyPressed = checkKeyIsAllowed(e.which);
         }
     });
@@ -115,13 +120,23 @@ $(function(){
     function checkKeyIsAllowed(tempKey){
         let key;
         if (tempKey == DOWN) {
-            key = (keyPressed != UP) ? tempKey : ketPressed;
+            key = (keyPressed != UP) ? tempKey : keyPressed;
         } else if (tempKey == UP) {
-            key = (keyPressed != DOWN) ? tempKey : ketPressed;
+            key = (keyPressed != DOWN) ? tempKey : keyPressed;
         } else if (tempKey == RIGHT) {
-            key = (keyPressed != LEFT) ? tempKey : ketPressed;
+            key = (keyPressed != LEFT) ? tempKey : keyPressed;
         } else if (tempKey == LEFT) {
-            key = (keyPressed != RIGHT) ? tempKey : ketPressed;
+            key = (keyPressed != RIGHT) ? tempKey : keyPressed;
+        }
+
+	if (tempKey == S) {
+            key = (keyPressed != W) ? tempKey : keyPressed;
+        } else if (tempKey == W) {
+            key = (keyPressed != S) ? tempKey : keyPressed;
+        } else if (tempKey == D) {
+            key = (keyPressed != A) ? tempKey : keyPressed;
+        } else if (tempKey == A) {
+            key = (keyPressed != D) ? tempKey : keyPressed;
         }
         return key;
     }
