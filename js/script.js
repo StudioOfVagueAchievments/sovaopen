@@ -73,10 +73,12 @@ $(function(){
                     makeSnakeBigger();
                     food.eaten = true;
 
-		    speed += 0.8;
-		    inter *= speed;
+		    if ((score / 10) % 5 == 0) {
+			speed += 0.99;
+                        inter *= speed;
 
-		    game = setInterval(gameLoop, inter);
+			game = setInterval(gameLoop, inter);
+		    }
                 }
             }
         });
