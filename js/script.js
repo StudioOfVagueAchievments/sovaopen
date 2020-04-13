@@ -9,10 +9,42 @@ $(function() {
     } else if ($(window).width() > 410) {
 	canvas.width = 380;
 	canvas.height = 507;
+
+	document.getElementById('left').addEventListener('click', function() {
+	   keyPressed = LEFT;
+	}, false);
+
+	document.getElementById('right').addEventListener('click', function() {
+	   keyPressed = RIGHT;
+	}, false);
+
+	document.getElementById('up').addEventListener('click', function() {
+	   keyPressed = UP;
+	}, false);
+
+	document.getElementById('down').addEventListener('click', function() {
+	   keyPressed = DOWN;
+	}, false);
     } else if ($(window).width() > 310) {
 	canvas.width = 280;
 	canvas.height = 407;
-    }  
+
+	document.getElementById('left').addEventListener('click', function() {
+	   keyPressed = LEFT;
+	}, false);
+
+	document.getElementById('right').addEventListener('click', function() {
+	   keyPressed = RIGHT;
+	}, false);
+
+	document.getElementById('up').addEventListener('click', function() {
+	   keyPressed = UP;
+	}, false);
+
+	document.getElementById('down').addEventListener('click', function() {
+	   keyPressed = DOWN;
+	}, false);
+    }
 
     var ctx = canvas.getContext('2d');
 
