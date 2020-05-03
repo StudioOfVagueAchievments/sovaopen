@@ -1,73 +1,73 @@
 $(function() {
     var canvas = $('#canvas')[0];
     if ($(window).width() > 1200) {
-	canvas.width = 1280;
-	canvas.height = 853;
+        canvas.width = 1280;
+        canvas.height = 853;
     } else if ($(window).width() > 576) {
-	canvas.width = 580;
-	canvas.height = 707;
+        canvas.width = 580;
+        canvas.height = 707;
     } else if ($(window).width() > 410) {
-	canvas.width = 380;
-	canvas.height = 507;
+        canvas.width = 380;
+        canvas.height = 507;
 
-	document.getElementById('left').addEventListener('click', function() {
-	    let e = LEFT;
-	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
-		keyPressed = checkKeyIsAllowed(e);
-	    }
-	}, false);
+        document.getElementById('left').addEventListener('click', function() {
+            let e = LEFT;
+            if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+                keyPressed = checkKeyIsAllowed(e);
+            }
+        }, false);
 
-	document.getElementById('right').addEventListener('click', function() {
-	    let e = RIGHT;
-	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
-		keyPressed = checkKeyIsAllowed(e);
-	    }
-	}, false);
+        document.getElementById('right').addEventListener('click', function() {
+            let e = RIGHT;
+            if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+                keyPressed = checkKeyIsAllowed(e);
+            }
+        }, false);
 
-	document.getElementById('up').addEventListener('click', function() {
-	    let e = UP;
-	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
-		keyPressed = checkKeyIsAllowed(e);
-	    }
-	}, false);
+        document.getElementById('up').addEventListener('click', function() {
+            let e = UP;
+            if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+                keyPressed = checkKeyIsAllowed(e);
+            }
+        }, false);
 
-	document.getElementById('down').addEventListener('click', function() {
-	   let e = DOWN;
-	   if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
-	       keyPressed = checkKeyIsAllowed(e);
-	   }
-	}, false);
+        document.getElementById('down').addEventListener('click', function() {
+            let e = DOWN;
+            if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+                keyPressed = checkKeyIsAllowed(e);
+            }
+        }, false);
     } else if ($(window).width() > 310) {
-	canvas.width = 280;
-	canvas.height = 407;
+        canvas.width = 280;
+        canvas.height = 407;
 
-	document.getElementById('left').addEventListener('click', function() {
-	    let e = LEFT;
-	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
-		keyPressed = checkKeyIsAllowed(e);
-	    }
-	}, false);
+        document.getElementById('left').addEventListener('click', function() {
+            let e = LEFT;
+            if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+                keyPressed = checkKeyIsAllowed(e);
+            }
+        }, false);
 
-	document.getElementById('right').addEventListener('click', function() {
-	    let e = RIGHT;
-	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
-		keyPressed = checkKeyIsAllowed(e);
-	    }
-	}, false);
+        document.getElementById('right').addEventListener('click', function() {
+            let e = RIGHT;
+            if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+                keyPressed = checkKeyIsAllowed(e);
+            }
+        }, false);
 
-	document.getElementById('up').addEventListener('click', function() {
-	    let e = UP;
-	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
-		keyPressed = checkKeyIsAllowed(e);
-	    }
-	}, false);
+        document.getElementById('up').addEventListener('click', function() {
+            let e = UP;
+            if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+                keyPressed = checkKeyIsAllowed(e);
+            }
+        }, false);
 
-	document.getElementById('down').addEventListener('click', function() {
-	    let e = DOWN;
-	    if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
-		keyPressed = checkKeyIsAllowed(e);
-	    }
-	}, false);
+        document.getElementById('down').addEventListener('click', function() {
+            let e = DOWN;
+            if ($.inArray(e, [DOWN, UP, LEFT, RIGHT]) != -1) {
+                keyPressed = checkKeyIsAllowed(e);
+            }
+        }, false);
     }
 
     var ctx = canvas.getContext('2d');
@@ -100,85 +100,94 @@ $(function() {
 
     game = setInterval(gameLoop, inter);
 
-    function gameLoop() {
-	clearCanvas();
-	drawFood();
-	moveSnake();
-	drawSnake();
+    async function gameLoop() {
+        clearCanvas();
+        drawFood();
+        drawSnake();
+        moveSnake();
+        //drawSnake();
     }
-    function moveSnake() {
-        $.each(snake, function(index, value){
-            snake[index].oldX = value.x;
-            snake[index].oldY = value.y;
 
-            if (index == 0) {
-                if (keyPressed == DOWN || keyPressed == S) {
-                    snake[index].y = value.y + blockSize;
-                } else if (keyPressed == UP || keyPressed == W) {
-                    snake[index].y = value.y - blockSize;
-		} else if (keyPressed == RIGHT || keyPressed == D) {
-                    snake[index].x = value.x + blockSize;
-                } else if (keyPressed == LEFT || keyPressed == A) {
-                    snake[index].x = value.x - blockSize;
-                }
+    function moveSnake() {
+        var i = 0;
+        while (i < snake.length) { 
+            snake[i].oldX = snake[i].x;
+            snake[i].oldY = snake[i].y;
+            if (i == 0) {
+                if (keyPressed == DOWN || keyPressed == S)
+                    snake[i].y += blockSize;
+                else if (keyPressed == UP || keyPressed == W)
+                    snake[i].y -= blockSize;
+                else if (keyPressed == RIGHT || keyPressed == D)
+                    snake[i].x += blockSize;
+                else if (keyPressed == LEFT || keyPressed == A)
+                    snake[i].x -= blockSize;
             } else {
-                snake[index].x = snake[index - 1].oldX;
-                snake[index].y = snake[index - 1].oldY;
+                snake[i].x = snake[i - 1].oldX;
+                snake[i].y = snake[i - 1].oldY;
             }
-        });
+            i++;
+        }
     }
 
     function drawSnake() {
-        $.each(snake, function(index, value) {
+        var i = 0;
+        while (i < snake.length) {
             ctx.fillStyle = 'green';
-            ctx.fillRect(value.x, value.y, snakeWidth, snakeHeight);
-            if (index == 0) {
-                if (collided(value.x, value.y)) {
+            ctx.fillRect(snake[i].x, snake[i].y, snakeWidth, snakeHeight);
+            if (i == 0) {
+                if (IsCollided(snake[i].x, snake[i].y))
                     gameOver(score);
-                }
-                if (didEatFood(value.x, value.y)) {
+                if (IsEatFood(snake[i].x, snake[i].y)) {
                     score += 10;
-                    $('#score').text(score);
-                    makeSnakeBigger();
+                    document.getElementById("score").innerHTML=score;
                     food.eaten = true;
+                    makeSnakeBigger();
 
-		    if ((score / 10) % 5 == 0) {
-			speed += 0.99;
-                        inter *= speed;
-
-			game = setInterval(gameLoop, inter);
-		    }
+                    if (IsEatFood())
+                        didSpeed();
                 }
             }
-        });
+            i++;
+        }
     }
 
-    function makeSnakeBigger() {
+    async function makeSnakeBigger() {
         snake.push({
             x: snake[snake.length - 1].oldX,
             y: snake[snake.length - 1].oldY
         });
     }
 
-    function collided(x, y) {
+    function IsCollided(x, y) {
         return snake.filter(function(value, index) {
             return index != 0 && value.x == x && value.y == y;
         }).length > 0 || x < 0 || x > canvas.width || y < 0 || y > canvas.height;
     }
 
-    function drawFood() {
+    async function drawFood() {
         ctx.fillStyle = 'red';
-        if (food.eaten == true) {
+        if (food.eaten == true)
             food = getNewPositionForFood();
-        }
         ctx.fillRect(food.x, food.y, snakeWidth, snakeHeight);
     }
 
-    function didEatFood(x, y) {
+    async function IsSpeed() {
+        return (score / 10) % 5 == 0;
+    }
+
+    function IsEatFood(x, y) {
         return food.x == x && food.y == y;
     }
 
-    function clearCanvas() {
+    function didSpeed() {
+        speed += 0.99;
+        inter *= speed;
+
+        game = setInterval(gameLoop, inter);
+    }
+
+    async function clearCanvas() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
@@ -188,7 +197,7 @@ $(function() {
         }
     });
 
-    function checkKeyIsAllowed(tempKey){
+    function checkKeyIsAllowed(tempKey) {
         let key;
         if (tempKey == DOWN) {
             key = (keyPressed != UP) ? tempKey : keyPressed;
@@ -200,7 +209,7 @@ $(function() {
             key = (keyPressed != RIGHT) ? tempKey : keyPressed;
         }
 
-	if (tempKey == S) {
+        if (tempKey == S) {
             key = (keyPressed != W) ? tempKey : keyPressed;
         } else if (tempKey == W) {
             key = (keyPressed != S) ? tempKey : keyPressed;
@@ -214,13 +223,13 @@ $(function() {
 
     function gameOver(score) {
         clearInterval(game);
-        alert('GameOver...\nYour score is: '+ score);
+        alert('GameOver...\nYour score is: ' + score);
         var gameOverLink = document.getElementById('buttonlink');
-        window.location.href='https://studioofvagueachievments.github.io/sovaopen/index.html';
+        window.location.href = 'https://studioofvagueachievments.github.io/sovaopen/index.html';
     }
 
     function getNewPositionForFood() {
-        let xArr =  yArr = [], xy;
+        let xArr = yArr = [];
         $.each(snake, function(index, value) {
             if ($.inArray(value.x, xArr) != -1) {
                 xArr.push(value.x);
@@ -229,23 +238,20 @@ $(function() {
                 yArr.push(value.y);
             }
         });
-        xy = getEmptyXY(xArr, yArr);
+        let xy = getEmptyXY(xArr, yArr);
         return xy;
     }
 
     function getEmptyXY(xArr, yArr) {
-        let newX, newY;
-        newX = getRandomNumber(canvas.width - 10, 10);
-        newY = getRandomNumber(canvas.height - 10, 10);
-        if($.inArray(newX, xArr) == -1 && $.inArray(newY, yArr) != -1) {
+        let newX = getRandomNumber(canvas.width - 10, 10);
+        let newY = getRandomNumber(canvas.height - 10, 10);
+        if ($.inArray(newX, xArr) == -1 && $.inArray(newY, yArr) != -1)
             return {
                 x: newX,
                 y: newY,
                 eaten: false
             };
-        } else {
-            return getEmptyXY(xArr, yArr);
-        }
+        return getEmptyXY(xArr, yArr);
     }
 
     function getRandomNumber(max, multipleOf) {
