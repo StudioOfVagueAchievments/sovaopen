@@ -1,21 +1,16 @@
-//random number generator
-
-function getRandomInt(max) 
-{
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-function gameOver() 
-{
-	alert('gameOver');
-	rows = 0;
-	gameOverText = $('<div>GAME OVER</div>');
-	board.append(gameOverText);
-}
-
 var openedCounter = 0;
 var attemptsMax = 0;
 var attempts = 0;
+var counter = 0;
+
+document.onload = startGame();
+
+function startGame() {
+	var menuItems = $('.menu-item');
+
+	console.log('here', menuItems);
+	menuItems.click(onMenuItemClick);
+}
 
 function onMenuItemClick() {
 	$("#menu").hide();
@@ -26,11 +21,6 @@ function onMenuItemClick() {
 	buildBoard(rows);
 };
 
-function getSum(a, b){
-	return a+b;
-}
-var counter = 0;
-//on cell click function
 function onCellClick(rows) {
 
 	if($('.clicked').length >= 2) return;
@@ -41,8 +31,7 @@ function onCellClick(rows) {
 	var clickedCells = $('.clicked');
 	//attempts modes
 
-	if(clickedCells.length == 2 ) 
-	{
+	if(clickedCells.length == 2 ) {
 		var c1 = $(clickedCells[0]);
 		var c2 = $(clickedCells[1]);
 		if(c1.data('num')== c2.data('num')) {
@@ -61,8 +50,7 @@ function onCellClick(rows) {
 function buildBoard(rows) {
 	var pics = [];
 
-	for (var i = 0; i< rows*rows/2; i++)
-	{
+	for (var i = 0; i< rows*rows/2; i++) {
 		pics[i] = i + 1;
 		pics[i+(rows*rows/2)] = i + 1;
 	}
@@ -70,12 +58,12 @@ function buildBoard(rows) {
 	var rand;//random number for shuffling
 	for (var i = 0; i < rows*rows; i++)//randomizing 
 	{
-		rand = getRandomInt(rows*rows/2);
+		rand = getRandomInt(rows * rows / 2);
 		temp = pics[i];
 		pics[i] = pics[rand];
 		pics[rand] = temp;
 	}
-	var cellSize = 100+20+10;
+	var cellSize = 100 + 20+ 10;
 
 	var board = $('#board');
 	//debugger;
@@ -94,11 +82,18 @@ function buildBoard(rows) {
 	cells.click(onCellClick);
 	
 }
-function startGame() {
-	var menuItems = $('.menu-item');
 
-	console.log('here', menuItems);
-	menuItems.click(onMenuItemClick);
+function gameOver() {
+	alert('gameOver');
+	rows = 0;
+	gameOverText = $('<div>GAME OVER</div>');
+	board.append(gameOverText);
 }
 
-$(document).ready(startGame);
+async function getSum(a, b){
+	return a + b;
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
