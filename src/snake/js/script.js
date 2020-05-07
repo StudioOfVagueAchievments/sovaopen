@@ -235,9 +235,9 @@ function checkKeyIsAllowed(tempKey) {
 
 function gameOver(score) {
     clearInterval(game);
-    //alert('GameOver...\nYour score is: ' + score);
-    //var gameOverLink = document.getElementById('buttonlink');
-    // window.location.href = 'https://studioofvagueachievments.github.io/sovaopen/index.html';
+    alert('GameOver...\nYour score is: ' + score);
+    var gameOverLink = document.getElementById('buttonlink');
+    window.location.href = 'https://studioofvagueachievments.github.io/sovaopen/index.html';
 }
 
 function getNewPositionForFood() {
