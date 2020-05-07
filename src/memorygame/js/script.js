@@ -3,8 +3,6 @@ var attemptsMax = 0;
 var attempts = 0;
 var counter = 0;
 
-document.onload = startGame();
-
 document.getElementsByClassName('menu-item').addEventListener('click', onMenuItemClick, false);
 
 function onMenuItemClick() {
