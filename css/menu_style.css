@@ -1,212 +1,215 @@
 /* Extra Small devices (landscape phones, 310px and up) */
 @media (min-width: 310px) {
 
-	html,
-	body {
-		display: flex;
-		height: 100%;
-		width: 100%;
-		background-color: #000;
-		top: 2em !important;
-		flex-flow: column;
-		margin: 0;
-		padding: 0;
-		justify-content: center;
-		align-items: center;
-	}
+    html,
+    body {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        background-color: #000;
+        top: 2em !important;
+        flex-flow: column;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
 
-	.elements {
-		display: flex;
-		height: 80px;
-		width: 200px; /* center the elements */
-		margin: 0 auto;
-		flex-flow: row wrap;
-		justify-content: space-between;
-	}
+    .elements {
+        display: flex;
+        height: 80px;
+        width: 200px;
+        /* center the elements */
+        margin: 0 auto;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
 
-	.item {
-		flex-basis: 540px;
-		margin: 10px auto;
-	}
+    .item {
+        flex-basis: 540px;
+        margin: 10px auto;
+    }
 
-	/* Buttons */
-	.btn {
-		display: block;
-		height: 60px;
-		width: 200px;
-		color: #fff;
-		border: 2px solid #fff;
-		border-radius: 10px;
-		text-align: center;
-		vertical-align: middle;
-		line-height: 30px;
-		font-size: 10px;
-	}
+    /* Buttons */
+    .btn {
+        display: block;
+        height: 60px;
+        width: 200px;
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 30px;
+        font-size: 10px;
+    }
 
-	.button {
-		display: inline-block;
-		position: relative;
-		border: 2px solid #fff;
-		padding: 15px 30px;
-		text-transform: uppercase;
-		text-decoration: none;
-		letter-spacing: 2px;
-		line-height: 8px;
-		transition: .5s
-	}
+    .button {
+        display: inline-block;
+        position: relative;
+        border: 2px solid #fff;
+        padding: 15px 30px;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 2px;
+        line-height: 8px;
+        transition: .5s
+    }
 
-	.btn:hover {
-		box-shadow: 0 0 10px #fff, 0 0 30px #fff;
-		transition: 0.1s cubic-bezier(0.76, 0.01, 0.45, 0.94);
-	}
+    .btn:hover {
+        box-shadow: 0 0 10px #fff, 0 0 30px #fff;
+        transition: 0.1s cubic-bezier(0.76, 0.01, 0.45, 0.94);
+    }
 
-	.button:hover {
-		background: #fff;
-		color: #000;
-		font-size: 13pt;
-		transition: 0.3s cubic-bezier(0.76, 0.01, 0.45, 0.94);
-		transition-delay: .2s;
-	}
+    .button:hover {
+        background: #fff;
+        color: #000;
+        font-size: 13pt;
+        transition: 0.3s cubic-bezier(0.76, 0.01, 0.45, 0.94);
+        transition-delay: .2s;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 
-	html,
-	body {
-		display: flex;
-		height: 100%;
-		width: 100%;
-		background-color: #000;
-		top: 2em !important;
-		flex-flow: column;
-		margin: 0;
-		padding: 0;
-		justify-content: center;
-		align-items: center;
-	}
+    html,
+    body {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        background-color: #000;
+        top: 2em !important;
+        flex-flow: column;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
 
-	.elements {
-		display: flex;
-		height: 80px;
-		width: 280px; /* center the elements */
-		margin: 0 auto;
-		flex-flow: row wrap;
-		justify-content: space-between;
-	}
+    .elements {
+        display: flex;
+        height: 80px;
+        width: 280px;
+        /* center the elements */
+        margin: 0 auto;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
 
-	.item {
-		flex-basis: 540px;
-		margin: 15px auto;
-	}
+    .item {
+        flex-basis: 540px;
+        margin: 15px auto;
+    }
 
-	/* Buttons */
-	.btn {
-		display: block;
-		height: 70px;
-		width: 300px;
-		color: #fff;
-		border: 2px solid #fff;
-		border-radius: 10px;
-		text-align: center;
-		vertical-align: middle;
-		line-height: 58px;
-		font-size: 15pt;
-	}
+    /* Buttons */
+    .btn {
+        display: block;
+        height: 70px;
+        width: 300px;
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 58px;
+        font-size: 15pt;
+    }
 
-	.button {
-		display: inline-block;
-		position: relative;
-		border: 2px solid #fff;
-		padding: 15px 30px;
-		text-transform: uppercase;
-		text-decoration: none;
-		letter-spacing: 3px;
-		line-height: 41px;
-		transition: .5s
-	}
+    .button {
+        display: inline-block;
+        position: relative;
+        border: 2px solid #fff;
+        padding: 15px 30px;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 3px;
+        line-height: 41px;
+        transition: .5s
+    }
 
-	.btn:hover {
-		box-shadow: 0 0 10px #fff, 0 0 40px #fff;
-		transition: 0.1s cubic-bezier(0.76, 0.01, 0.45, 0.94);
-	}
+    .btn:hover {
+        box-shadow: 0 0 10px #fff, 0 0 40px #fff;
+        transition: 0.1s cubic-bezier(0.76, 0.01, 0.45, 0.94);
+    }
 
-	.button:hover {
-		background: #fff;
-		color: #000;
-		font-size: 18pt;
-		transition: 0.3s cubic-bezier(0.76, 0.01, 0.45, 0.94);
-		transition-delay: .2s;
-	}
+    .button:hover {
+        background: #fff;
+        color: #000;
+        font-size: 18pt;
+        transition: 0.3s cubic-bezier(0.76, 0.01, 0.45, 0.94);
+        transition-delay: .2s;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 
-	html,
-	body {
-		display: flex;
-		height: 100%;
-		width: 100%;
-		background-color: #000;
-		top: 2em !important;
-		flex-flow: column;
-		margin: 0;
-		padding: 0;
-		justify-content: center;
-		align-items: center;
-	}
+    html,
+    body {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        background-color: #000;
+        top: 2em !important;
+        flex-flow: column;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
 
-	.elements {
-		display: flex;
-		height: 100px;
-		width: 380px; /* center the elements */
-		margin: 0 auto;
-		flex-flow: row wrap;
-		justify-content: space-between;
-	}
+    .elements {
+        display: flex;
+        height: 100px;
+        width: 380px;
+        /* center the elements */
+        margin: 0 auto;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
 
-	.item {
-		flex-basis: 540px;
-		margin: 15px auto;
-	}
+    .item {
+        flex-basis: 540px;
+        margin: 15px auto;
+    }
 
-	/* Buttons */
-	.btn {
-		display: block;
-		height: 80px;
-		width: 400px;
-		color: #fff;
-		border: 2px solid #fff;
-		border-radius: 10px;
-		text-align: center;
-		vertical-align: middle;
-		line-height: 60px;
-		font-size: 15pt;
-	}
+    /* Buttons */
+    .btn {
+        display: block;
+        height: 80px;
+        width: 400px;
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 60px;
+        font-size: 15pt;
+    }
 
-	.button {
-		display: inline-block;
-		position: relative;
-		border: 2px solid #fff;
-		padding: 15px 30px;
-		text-transform: uppercase;
-		text-decoration: none;
-		letter-spacing: 4px;
-		line-height: 40px;
-		transition: .5s
-	}
+    .button {
+        display: inline-block;
+        position: relative;
+        border: 2px solid #fff;
+        padding: 15px 30px;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 4px;
+        line-height: 40px;
+        transition: .5s
+    }
 
-	.btn:hover {
-		box-shadow: 0 0 10px #fff, 0 0 50px #fff;
-		transition: 0.1s cubic-bezier(0.76, 0.01, 0.45, 0.94);
-	}
+    .btn:hover {
+        box-shadow: 0 0 10px #fff, 0 0 50px #fff;
+        transition: 0.1s cubic-bezier(0.76, 0.01, 0.45, 0.94);
+    }
 
-	.button:hover {
-		background: #fff;
-		color: #000;
-		font-size: 18pt;
-		transition: 0.3s cubic-bezier(0.76, 0.01, 0.45, 0.94);
-		transition-delay: .2s;
-	}
+    .button:hover {
+        background: #fff;
+        color: #000;
+        font-size: 18pt;
+        transition: 0.3s cubic-bezier(0.76, 0.01, 0.45, 0.94);
+        transition-delay: .2s;
+    }
 }
