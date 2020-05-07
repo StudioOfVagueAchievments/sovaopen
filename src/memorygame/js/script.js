@@ -5,12 +5,7 @@ var counter = 0;
 
 document.onload = startGame();
 
-function startGame() {
-	var menuItems = $('.menu-item');
-
-	console.log('here', menuItems);
-	menuItems.click(onMenuItemClick);
-}
+document.getElementsByClassName('menu-item').addEventListener('click', onMenuItemClick, false);
 
 function onMenuItemClick() {
 	$("#menu").hide();
@@ -22,7 +17,6 @@ function onMenuItemClick() {
 };
 
 function onCellClick(rows) {
-
 	if($('.clicked').length >= 2) return;
 	
 	var cell = $(this);
