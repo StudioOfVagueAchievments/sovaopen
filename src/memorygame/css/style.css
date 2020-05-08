@@ -4,9 +4,8 @@ body {
 	*/
 
     display: flex;
-    width: 50em;
     margin: 18em auto;
-    flex-flow: row wrap;
+   
     justify-content: center;
 }
 
