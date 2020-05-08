@@ -1,4 +1,6 @@
-# sovaopen
-Open Source Free Games
+# Open Source Free Games
 
-- [Website](https://studioofvagueachievments.github.io/sovaopen/).
+[![CodeFactor](https://www.codefactor.io/repository/github/studioofvagueachievments/sovaopen/badge)](https://www.codefactor.io/repository/github/studioofvagueachievments/sovaopen)
+
+- [Snake](https://studioofvagueachievments.github.io/sovaopen/src/snake/).
+- [Memory](https://studioofvagueachievments.github.io/sovaopen/src/memorygame/).
