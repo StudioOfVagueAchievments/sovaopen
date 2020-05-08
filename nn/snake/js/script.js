@@ -8,10 +8,8 @@ var speed = 0;
 
 let nn = new NeuralNetwork(4, 10, 1);
 
-function setup() {
-    nn.setLearningRate(0.01);
-    nn.train([1, 1, 0, 0], [1]);
-}
+nn.setLearningRate(0.01);
+nn.train([1, 1, 0, 0], [1]);
 
 $(function() {
     var canvas = $('#canvas')[0];
@@ -86,7 +84,7 @@ $(function() {
                 }
 
                 if (food.y > value.y) { // DOWN
-                    if (nn.predict(syn) > 0.5) 
+                    if (nn.predict(syn) > 0.5)
                         nn.train(syn, [0]);
                     else
                         nn.train(syn, [1]);
@@ -96,7 +94,7 @@ $(function() {
                             snake[index].x = value.x - blockSize;
                         else
                             snake[index].x = value.x + blockSize;
-                    } else 
+                    } else
                         snake[index].y = value.y + blockSize;
                 } else if (food.x > value.x) { // RIGHT
                     if (nn.predict(syn) > 0.5)
@@ -202,16 +200,8 @@ $(function() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    function gameOver(score) {
-        clearInterval(game);
-        // alert('GameOver...\nYour score is: ' + score);
-        // var gameOverLink = document.getElementById('buttonlink');
-        //window.location.href = 'https://studioofvagueachievments.github.io/sovaopen/index.html';
-    }
-
     function getNewPositionForFood() {
-        let xArr = yArr = [],
-            xy;
+        let xArr = yArr = [];
         $.each(snake, function(index, value) {
             if ($.inArray(value.x, xArr) != -1) {
                 xArr.push(value.x);
@@ -220,8 +210,7 @@ $(function() {
                 yArr.push(value.y);
             }
         });
-        xy = getEmptyXY(xArr, yArr);
-        return xy;
+        return getEmptyXY(xArr, yArr);
     }
 
     function getEmptyXY(xArr, yArr) {
