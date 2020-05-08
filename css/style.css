@@ -1,7 +1,5 @@
 /* Extra Small devices (landscape phones, 310px and up) */
 @media (min-width: 310px) {
-
-    html,
     body {
         display: flex;
         height: 100%;
@@ -16,7 +14,6 @@
     }
 
     .elements {
-        display: flex;
         height: 80px;
         width: 200px;
         /* center the elements */
@@ -72,8 +69,6 @@
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-
-    html,
     body {
         display: flex;
         height: 100%;
@@ -88,7 +83,6 @@
     }
 
     .elements {
-        display: flex;
         height: 80px;
         width: 280px;
         /* center the elements */
@@ -144,8 +138,6 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
-    html,
     body {
         display: flex;
         height: 100%;
@@ -160,7 +152,6 @@
     }
 
     .elements {
-        display: flex;
         height: 100px;
         width: 380px;
         /* center the elements */
