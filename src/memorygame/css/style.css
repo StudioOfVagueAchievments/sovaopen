@@ -1,5 +1,5 @@
 body {
-    /* TODO:
+    /*      TODO:
 	   * Background Color;
 	*/
 
@@ -21,7 +21,7 @@ body {
 }
 
 #deck > .cell {
-    padding: 2.7em 2.7em;
+    padding: 2.7em;
     text-align: center;
 
     background-color: #ccc;
@@ -30,17 +30,12 @@ body {
     font-family: Baskerville;
 
     border: 5px solid #333;
-}  
+}
 
 #deck > .cell .clicked { color: #333; }
 
-#menu {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-
 #menu > .menu-item {
+    display: flex;
     margin-bottom: .5em;
 
     align-items: center;
