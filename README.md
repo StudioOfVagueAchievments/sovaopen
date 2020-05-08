@@ -1,5 +1,4 @@
-# sovaopen
-Open Source Free Games
+# Open Source Free Games
 
 [![CodeFactor](https://www.codefactor.io/repository/github/studioofvagueachievments/sovaopen/badge)](https://www.codefactor.io/repository/github/studioofvagueachievments/sovaopen)
 
