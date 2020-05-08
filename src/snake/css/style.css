@@ -13,60 +13,63 @@ body {
 
 @media (min-width: 310px) {
     .mobile {
-	display: block;
+        display: block;
     }
 
     .hard {
-	display: flex;
-	justify-content: space-around; 
+        display: flex;
+        justify-content: space-around;
     }
-    
-    #left, #right, #up, #down {
-	background-color: transparent;
-	border: none;
-    }
-    
-    #left {
-	padding: 0px 40px 0px 0px;
-    }
-    
-    #right {
-	padding: 0px 0px 0px 40px;
-    }
-    
-    #up {
-	margin: 0px 0px -10px 0px;
-    }
-    
+
+    #left,
+    #right,
+    #up,
     #down {
-	margin: -10px 0px 0px 0px;
+        background-color: transparent;
+        border: none;
     }
-    
+
+    #left {
+        padding-right: 40px;
+    }
+
+    #right {
+        padding-left: 40px;
+    }
+
+    #up {
+        margin-bottom: -10px;
+    }
+
+    #down {
+        margin-top: -10px;
+    }
+
     #left i {
-	font-size: 8em;
-	color: rgb(235, 93, 84);
+        font-size: 8em;
+        color: rgb(235, 93, 84);
     }
-    
+
     #right i {
-	font-size: 8em;
-	color: rgb(235, 93, 84);
+        font-size: 8em;
+        color: rgb(235, 93, 84);
     }
-    
+
     #up i {
-	font-size: 8em;
-	color: rgb(235, 93, 84);
+        font-size: 8em;
+        color: rgb(235, 93, 84);
     }
-    
+
     #down i {
-	font-size: 8em;
-	color: rgb(235, 93, 84);
+        font-size: 8em;
+        color: rgb(235, 93, 84);
     }
 }
 
 
 @media (min-width: 1200px) {
     .mobile {
-	display: none;
+        display: none;
     }
 
 }
