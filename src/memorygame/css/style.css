@@ -1,56 +1,60 @@
 body {
-	/* TODO: 
+    /* TODO: 
 		Background Color; 
 	*/
-	padding: 0;
+
+    display: flex;
+    width: 50em;
+    margin: 18em auto;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 
-.board {
-   margin-left: 20%;
+#deck {
+    display: grid;
+    gap: 5px;
 }
 
-.cell {
-	display: block;
-	float: left;
-	background-color: #ccc;
-	height: 95px;
-	width: 95px;
-	border: 5px solid #333;
-	margin: 5px;
-	text-align: center;
-    line-height: 100px;
-    font-size: 72px;
-    font-family: sans-serif;
-    left: -5000px;
-    color: #ccc;
-}
+#deck > .cell {
+    margin-bottom: .5em;
 
-.cell.clicked {
-	color: #333;
-}
+    padding: 2.7em 2.7em;
+    text-align: center;
 
-.cell.solved {
-	visibility: collapse;
-}
+    background-color: #ccc;
+    
+    font-size: 1em;
+    font-family: Baskerville;
 
-.cell.opened {
-	text-decoration-color: #aaaaaa;
+    border: 5px solid #333;
+}  
+
+#deck > .cell .clicked {
+    color: #333;
 }
 
 #menu {
-	margin-left: 37%;
-	margin-top: 300px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 
-#menu-item {
-	width: 400px;
-	height: 80px;
-	border: 1px solid black;
-	border-radius: 5px;
-	display: table;
-	text-align: center;
-	line-height: 90px;
-	background-color: #ccc;
-	font-size: 30px;
-	font-family: cursive;
+#menu > .menu-item {
+	display: flex;
+    margin-bottom: .5em;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #ccc;
+
+    line-height: 3em;
+    font-size: 1.8em;
+    font-family: cursive;
+
+    border: 1px solid #000;
+    border-radius: 5px;
+
+    width: 400px;
+    height: 80px;
 }
