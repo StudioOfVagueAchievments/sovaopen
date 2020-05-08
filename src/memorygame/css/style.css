@@ -1,6 +1,6 @@
 body {
-    /* TODO: 
-		Background Color; 
+    /* TODO:
+	   * Background Color;
 	*/
 
     display: flex;
@@ -32,9 +32,7 @@ body {
     border: 5px solid #333;
 }  
 
-#deck > .cell .clicked {
-    color: #333;
-}
+#deck > .cell .clicked { color: #333; }
 
 #menu {
     display: flex;
@@ -43,7 +41,6 @@ body {
 }
 
 #menu > .menu-item {
-	display: flex;
     margin-bottom: .5em;
 
     align-items: center;
