@@ -43,6 +43,7 @@ while (i < document.getElementsByClassName('menu-item').length) {
                         let second = document.getElementsByClassName("clicked")[1];
                         switch (document.getElementsByClassName("clicked")[0].dataset.num === document.getElementsByClassName("clicked")[1].dataset.num) {
                             case true: // Good 
+                                /* Change score */
                                 data.counter += 1;
                                 document.getElementById("attCounter").innerHTML = data.counter;
 
