@@ -116,10 +116,12 @@ function buildDeck(rows) {
             document.getElementById("body").innerHTML += "<span id=attCounter>0</span>";
             break;
         case 6:
+            document.getElementById("body").style.margin = "10em auto";
             document.getElementById("body").innerHTML = "<div id=deck style=grid-template-columns:repeat(6,1fr);></div>";
             document.getElementById("body").innerHTML += "<span id=attCounter>0</span>";
             break;
         case 8:
+            document.getElementById("body").style.margin = "3em auto";
             document.getElementById("body").innerHTML = "<div id=deck style=grid-template-columns:repeat(8,1fr);></div>";
             document.getElementById("body").innerHTML += "<span id=attCounter>0</span>";
             break;
