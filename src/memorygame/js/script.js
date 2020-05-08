@@ -44,6 +44,7 @@ while (i < document.getElementsByClassName('menu-item').length) {
                         switch (document.getElementsByClassName("clicked")[0].dataset.num === document.getElementsByClassName("clicked")[1].dataset.num) {
                             case true: // Good 
                                 data.counter += 1;
+                                document.getElementById("attCounter").innerHTML = data.counter;
 
                                 first.remove();
                                 second.remove();
