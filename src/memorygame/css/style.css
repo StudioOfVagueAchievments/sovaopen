@@ -16,8 +16,6 @@ body {
 }
 
 #deck > .cell {
-    margin-bottom: .5em;
-
     padding: 2.7em 2.7em;
     text-align: center;
 

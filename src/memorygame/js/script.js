@@ -106,9 +106,12 @@ function buildDeck(rows) {
         pics[rand] = temp;
     }
 
+   
+
     /* Styling */
     switch (data.difficult) {
         case 4:
+            document.getElementById("body").style.margin = "16em auto";
             document.getElementById("body").innerHTML = "<div id=deck style=grid-template-columns:repeat(4,1fr);></div>";
             document.getElementById("body").innerHTML += "<span id=attCounter>0</span>";
             break;
