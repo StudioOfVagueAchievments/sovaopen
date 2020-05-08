@@ -136,7 +136,7 @@ function buildDeck(rows) {
 }
 
 function gameOver() {
-    document.getElementById("body").innerHTML = "<div id=result style=grid-template-columns:repeat(3,1fr);>" +
+    document.getElementById("body").innerHTML = "<div id=result style=grid-template-columns:repeat(1,1fr);>" +
         "difficult:" + data.difficult + " " +
         "errors:" + data.errors + " " +
         "success:" + data.counter + 

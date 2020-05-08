@@ -15,6 +15,11 @@ body {
     gap: 5px;
 }
 
+#results {
+    display: grid;
+    gap: 5px;
+}
+
 #deck > .cell {
     padding: 2.7em 2.7em;
     text-align: center;
