@@ -10,48 +10,40 @@ body {
 
     /* center the elements */
     justify-content: center;
-    align-items: center;
+}
+
+.row {
+  justify-content: center;
 }
 
 /* Extra Small devices (landscape phones, 310px and up) */
 @media (min-width: 310px) {
     .elements {
-        height: 80px;
+        height: 60px;
         width: 200px;
-        margin: 0 auto;
     }
 
     .item {
-        flex-basis: 540px;
         margin: 10px auto;
     }
 
     /* Buttons */
     .btn {
-        display: block;
-        position: relative;
-
         height: 60px;
         width: 200px;
+
         color: #fff;
 
         border: 2px solid #fff;
         border-radius: 10px;
 
-        text-align: center;
-        vertical-align: middle;
-
-        line-height: 30px;
-        font-size: 10px;
-
-
-        padding: 15px 30px;
+        font-size: 12px;
 
         text-transform: uppercase;
         text-decoration: none;
 
         letter-spacing: 2px;
-        line-height: 8px;
+        line-height: 3.75em;
 
         transition: .5s
     }
@@ -59,7 +51,9 @@ body {
     .btn:hover {
         background: #fff;
         color: #000;
-        font-size: 13pt;
+
+        font-size: 12pt;
+        line-height: 2.8em;
 
         box-shadow: 0 0 10px #fff, 0 0 30px #fff;
 
@@ -71,20 +65,16 @@ body {
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
     .elements {
-        height: 80px;
-        width: 200px;
+        height: 70px;
+        width: 300px;
     }
 
     .item {
-        flex-basis: 540px;
         margin: 15px auto;
     }
 
     /* Buttons */
     .btn {
-        display: block;
-        position: relative;
-
         height: 70px;
         width: 300px;
 
@@ -93,18 +83,13 @@ body {
         border: 2px solid #fff;
         border-radius: 10px;
 
-        padding: 15px 30px;
-        text-align: center;
-        vertical-align: middle;
-
-        line-height: 58px;
         font-size: 15pt;
-       
+
         text-transform: uppercase;
         text-decoration: none;
 
         letter-spacing: 3px;
-        line-height: 41px;
+        line-height: 2.7em;
 
         transition: .5s
     }
@@ -112,7 +97,9 @@ body {
     .btn:hover {
         background: #fff;
         color: #000;
+
         font-size: 18pt;
+        line-height: 2.3em;
 
         box-shadow: 0 0 10px #fff, 0 0 40px #fff;
 
@@ -124,15 +111,12 @@ body {
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .elements {
-        height: 100px;
-        width: 380px;
+        height: 80px;
+        width: 400px;
     }
 
     /* Buttons */
     .btn {
-        display: block;
-        position: relative;
-
         height: 80px;
         width: 400px;
 
@@ -141,18 +125,13 @@ body {
         border: 2px solid #fff;
         border-radius: 10px;
 
-        padding: 15px 30px;
-        text-align: center;
-        vertical-align: middle;
-
-        line-height: 60px;
         font-size: 15pt;
-        
+
         text-transform: uppercase;
         text-decoration: none;
 
         letter-spacing: 4px;
-        line-height: 40px;
+        line-height: 3.3em;
 
         transition: .5s
     }
@@ -160,7 +139,10 @@ body {
     .btn:hover {
         background: #fff;
         color: #000;
+
         font-size: 18pt;
+
+        line-height: 2.7em;
 
         box-shadow: 0 0 10px #fff, 0 0 50px #fff;
 
