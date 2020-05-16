@@ -209,8 +209,11 @@ function checkKeyIsAllowed(tempKey) {
 
 function gameOver(score) {
     clearInterval(game);
-    alert('GameOver...\nYour score is: ' + score);
-    window.location = "https://studioofvagueachievments.github.io/sovaopen/";
+    switch (confirm("GameOver...\nYour score is: " + score)) {
+      default:
+      window.location = "https://studioofvagueachievments.github.io/sovaopen/";
+      break;
+    }
 }
 
 function getNewPositionForFood() {
