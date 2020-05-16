@@ -10,48 +10,12 @@ if (window.screen.width > 1200) {
     canvas.width = 380;
     canvas.height = 500;
 
-    document.getElementById('left').addEventListener('click', function() {
-        let e = LEFT;
-        didMobile(e);
-    }, false);
-
-    document.getElementById('right').addEventListener('click', function() {
-        let e = RIGHT;
-        didMobile(e);
-    }, false);
-
-    document.getElementById('up').addEventListener('click', function() {
-        let e = UP;
-        didMobile(e);
-    }, false);
-
-    document.getElementById('down').addEventListener('click', function() {
-        let e = DOWN;
-        didMobile(e);
-    }, false);
+    initMobile();
 } else if (window.screen.width > 310) {
     canvas.width = 280;
     canvas.height = 400;
 
-    document.getElementById('left').addEventListener('click', function() {
-        let e = LEFT;
-        didMobile(e);
-    }, false);
-
-    document.getElementById('right').addEventListener('click', function() {
-        let e = RIGHT;
-        didMobile(e);
-    }, false);
-
-    document.getElementById('up').addEventListener('click', function() {
-        let e = UP;
-        didMobile(e);
-    }, false);
-
-    document.getElementById('down').addEventListener('click', function() {
-        let e = DOWN;
-        didMobile(e);
-    }, false);
+    initMobile();
 }
 
 const ctx = canvas.getContext('2d');
@@ -81,11 +45,10 @@ const D = 68;
 
 var keyPressed = DOWN;
 var score = 0;
-var game;
 var inter = 60;
 var speed = 0;
 
-game = setInterval(gameLoop, inter);
+var game = setInterval(gameLoop, inter);
 
 function gameLoop() {
     clearCanvas();
@@ -145,9 +108,10 @@ async function makeSnakeBigger() {
 }
 
 function IsCollided(x, y) {
+  console.log(x, y);
     return snake.filter(function(value, index) {
         return index != snake.length - 1 && value.x == x && value.y == y;
-    }).length > 0 || x <= 0 || x >= canvas.width || y <= 0 || y >= canvas.height;
+    }).length > 0 || x == -10 || x == canvas.width || y == -10 || y == canvas.height;
 }
 
 async function drawFood() {
@@ -176,12 +140,25 @@ async function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-async function didMobile(e) {
-  if ((e in [DOWN, UP, LEFT, RIGHT]) !== -1)
-      keyPressed = checkKeyIsAllowed(e);
+async function initMobile() {
+  document.getElementById("left").addEventListener("click", function() {
+    keyPressed = checkKeyIsAllowed(LEFT);
+  }, false);
+
+  document.getElementById("right").addEventListener("click", function() {
+    keyPressed = checkKeyIsAllowed(RIGHT);
+  }, false);
+
+  document.getElementById("up").addEventListener("click", function() {
+    keyPressed = checkKeyIsAllowed(UP);
+  }, false);
+
+  document.getElementById("down").addEventListener("click", function() {
+    keyPressed = checkKeyIsAllowed(DOWN);
+  }, false);
 }
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener("keydown", function(e) {
     switch (e.keyCode) {
         case S:
         case DOWN:
