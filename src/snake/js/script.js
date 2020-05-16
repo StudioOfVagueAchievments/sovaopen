@@ -12,26 +12,22 @@ if (window.screen.width > 1200) {
 
     document.getElementById('left').addEventListener('click', function() {
         let e = LEFT;
-        if ((e in [DOWN, UP, LEFT, RIGHT]) !== -1)
-            keyPressed = checkKeyIsAllowed(e);
+        didMobile(e);
     }, false);
 
     document.getElementById('right').addEventListener('click', function() {
         let e = RIGHT;
-        if ((e in [DOWN, UP, LEFT, RIGHT]) !== -1)
-            keyPressed = checkKeyIsAllowed(e);
+        didMobile(e);
     }, false);
 
     document.getElementById('up').addEventListener('click', function() {
         let e = UP;
-        if ((e in [DOWN, UP, LEFT, RIGHT]) !== -1)
-            keyPressed = checkKeyIsAllowed(e);
+        didMobile(e);
     }, false);
 
     document.getElementById('down').addEventListener('click', function() {
         let e = DOWN;
-        if ((e in [DOWN, UP, LEFT, RIGHT]) !== -1)
-            keyPressed = checkKeyIsAllowed(e);
+        didMobile(e);
     }, false);
 } else if (window.screen.width > 310) {
     canvas.width = 280;
@@ -39,26 +35,22 @@ if (window.screen.width > 1200) {
 
     document.getElementById('left').addEventListener('click', function() {
         let e = LEFT;
-        if ((e in [DOWN, UP, LEFT, RIGHT]) !== -1)
-            keyPressed = checkKeyIsAllowed(e);
+        didMobile(e);
     }, false);
 
     document.getElementById('right').addEventListener('click', function() {
         let e = RIGHT;
-        if ((e in [DOWN, UP, LEFT, RIGHT]) !== -1)
-            keyPressed = checkKeyIsAllowed(e);
+        didMobile(e);
     }, false);
 
     document.getElementById('up').addEventListener('click', function() {
         let e = UP;
-        if ((e in [DOWN, UP, LEFT, RIGHT]) !== -1)
-            keyPressed = checkKeyIsAllowed(e);
+        didMobile(e);
     }, false);
 
     document.getElementById('down').addEventListener('click', function() {
         let e = DOWN;
-        if ((e in [DOWN, UP, LEFT, RIGHT]) !== -1)
-            keyPressed = checkKeyIsAllowed(e);
+        didMobile(e);
     }, false);
 }
 
@@ -95,7 +87,7 @@ var speed = 0;
 
 game = setInterval(gameLoop, inter);
 
-async function gameLoop() {
+function gameLoop() {
     clearCanvas();
     drawFood();
     drawSnake();
@@ -184,6 +176,11 @@ async function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+async function didMobile(e) {
+  if ((e in [DOWN, UP, LEFT, RIGHT]) !== -1)
+      keyPressed = checkKeyIsAllowed(e);
+}
+
 document.addEventListener('keydown', function(e) {
     switch (e.keyCode) {
         case S:
@@ -237,7 +234,7 @@ function gameOver(score) {
     clearInterval(game);
     alert('GameOver...\nYour score is: ' + score);
     var gameOverLink = document.getElementById('buttonlink');
-    window.location.href = 'https://studioofvagueachievments.github.io/sovaopen/';
+    window.location.href = "https://studioofvagueachievments.github.io/sovaopen/" ;
 }
 
 function getNewPositionForFood() {
@@ -265,5 +262,5 @@ function getEmptyXY(xArr, yArr) {
 
 function getRandomNumber(max, multipleOf) {
     let result = Math.floor(Math.random() * max);
-    return result = (result % 10 == 0) ? result : result + (multipleOf - result % 10);;
+    return result = (result % 10 == 0) ? result : result + (multipleOf - result % 10);
 }
