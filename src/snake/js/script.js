@@ -208,12 +208,13 @@ function checkKeyIsAllowed(tempKey) {
 }
 
 function gameOver(score) {
-    clearInterval(game);
-    switch (confirm("GameOver...\nYour score is: " + score)) {
-      default:
-      window.location = "https://studioofvagueachievments.github.io/sovaopen/";
-      break;
-    }
+  clearInterval(game);
+
+  document.getElementById("body").innerHTML = "<div id=result><a class=btn href=https://studioofvagueachievments.github.io/sovaopen/ role=button>Go Home</a></div>";
+
+  document.getElementById("body").style.display = "flex";
+  document.getElementById("body").style.margin = "18em auto";
+  document.getElementById("body").style.justifyContent = "center";
 }
 
 function getNewPositionForFood() {

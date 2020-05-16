@@ -4,9 +4,39 @@ body { background-color: #000; }
 
 #canvas { border: 1px solid #7d7d7d; }
 
-@media (min-width: 310px) {
-    .mobile { display: block; }
+#result {
+    display: flex;
 
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #000;
+
+    width: 400px;
+    height: 80px;
+}
+
+.btn {
+    height: 60px;
+    width: 200px;
+
+    color: #fff;
+
+    border: 2px solid #fff;
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+    text-decoration: none;
+
+    letter-spacing: 2px;
+    line-height: 3.75em;
+
+    transition: .5s
+}
+
+@media (min-width: 310px) {
     .hard {
         display: flex;
         justify-content: space-around;
@@ -28,21 +58,9 @@ body { background-color: #000; }
 
     #down { margin-top: -10px; }
 
-    #left i {
-        font-size: 8em;
-        color: rgb(235, 93, 84);
-    }
-
-    #right i {
-        font-size: 8em;
-        color: rgb(235, 93, 84);
-    }
-
-    #up i {
-        font-size: 8em;
-        color: rgb(235, 93, 84);
-    }
-
+    #left i,
+    #right i,
+    #up i,
     #down i {
         font-size: 8em;
         color: rgb(235, 93, 84);
