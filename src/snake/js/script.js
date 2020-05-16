@@ -54,7 +54,7 @@ if (window.screen.width > 1200) {
     }, false);
 }
 
-var ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 
 var snake = [
     { x: 50, y: 80, oldX: 0, oldY: 0 },
@@ -66,8 +66,8 @@ var snake = [
 ];
 var food = { x: 200, y: 200, eaten: false };
 
-var snakeWidth = snakeHeight = 10;
-var blockSize = 10;
+const snakeWidth = snakeHeight = 10;
+const blockSize = 10;
 
 const LEFT = 37;
 const UP = 38;
