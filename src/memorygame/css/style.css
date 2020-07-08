@@ -1,11 +1,11 @@
 body {
     /*      TODO:
-	   * Background Color;
-	*/
+     * Background Color;
+     */
 
     display: flex;
     margin: 18em auto;
-   
+
     justify-content: center;
 }
 
@@ -14,9 +14,16 @@ body {
     gap: 5px;
 }
 
-#results {
-    display: grid;
-    gap: 5px;
+#result {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #000;
+
+    width: 400px;
+    height: 80px;
 }
 
 #deck > .cell {
@@ -24,7 +31,7 @@ body {
     text-align: center;
 
     background-color: #ccc;
-    
+
     font-size: 1em;
     font-family: Baskerville;
 

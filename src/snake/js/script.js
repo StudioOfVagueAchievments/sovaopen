@@ -1,24 +1,24 @@
 var canvas = document.getElementById("canvas");
 
-if (window.screen.width > 1200) {
+if (window.innerWidth > 1200) {
     canvas.width = 1280;
     canvas.height = 850;
-} else if (window.screen.width > 576) {
+} else if (window.innerWidth > 576) {
     canvas.width = 580;
     canvas.height = 700;
-} else if (window.screen.width > 410) {
+} else if (window.innerWidth > 410) {
     canvas.width = 380;
     canvas.height = 500;
 
     initMobile();
-} else if (window.screen.width > 310) {
+} else if (window.innerWidth > 310) {
     canvas.width = 280;
     canvas.height = 400;
 
     initMobile();
 }
 
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext("2d");
 
 var snake = [
     { x: 50, y: 80, oldX: 0, oldY: 0 },
@@ -30,7 +30,8 @@ var snake = [
 ];
 var food = { x: 200, y: 200, eaten: false };
 
-const snakeWidth = snakeHeight = 10;
+const snakeWidth = 10;
+const snakeHeight = 10;
 const blockSize = 10;
 
 const LEFT = 37;
@@ -58,7 +59,7 @@ function gameLoop() {
 }
 
 function moveSnake() {
-    var i = snake.length - 1;
+    let i = snake.length - 1;
     while (i >= 0) {
         snake[i].oldX = snake[i].x;
         snake[i].oldY = snake[i].y;
@@ -90,7 +91,7 @@ function drawSnake() {
             didSpeed();
     }
 
-    var i = snake.length;
+    let i = snake.length;
     while (--i) {
         ctx.fillStyle = "#080";
         ctx.fillRect(snake[i].x, snake[i].y, snakeWidth, snakeHeight);
@@ -108,7 +109,6 @@ async function makeSnakeBigger() {
 }
 
 function IsCollided(x, y) {
-  console.log(x, y);
     return snake.filter(function(value, index) {
         return index != snake.length - 1 && value.x == x && value.y == y;
     }).length > 0 || x == -10 || x == canvas.width || y == -10 || y == canvas.height;
@@ -141,84 +141,86 @@ async function clearCanvas() {
 }
 
 async function initMobile() {
-  document.getElementById("left").addEventListener("click", function() {
-    keyPressed = checkKeyIsAllowed(LEFT);
-  }, false);
+    document.getElementById("left").addEventListener("click", function() {
+        keyPressed = checkKeyIsAllowed(LEFT);
+    }, false);
 
-  document.getElementById("right").addEventListener("click", function() {
-    keyPressed = checkKeyIsAllowed(RIGHT);
-  }, false);
+    document.getElementById("right").addEventListener("click", function() {
+        keyPressed = checkKeyIsAllowed(RIGHT);
+    }, false);
 
-  document.getElementById("up").addEventListener("click", function() {
-    keyPressed = checkKeyIsAllowed(UP);
-  }, false);
+    document.getElementById("up").addEventListener("click", function() {
+        keyPressed = checkKeyIsAllowed(UP);
+    }, false);
 
-  document.getElementById("down").addEventListener("click", function() {
-    keyPressed = checkKeyIsAllowed(DOWN);
-  }, false);
+    document.getElementById("down").addEventListener("click", function() {
+        keyPressed = checkKeyIsAllowed(DOWN);
+    }, false);
 }
 
 document.addEventListener("keydown", function(e) {
     switch (e.keyCode) {
-        case S:
-        case DOWN:
-            keyPressed = checkKeyIsAllowed(e.keyCode);
-            break;
+    case S:
+    case DOWN:
+        keyPressed = checkKeyIsAllowed(e.keyCode);
+        break;
 
-        case W:
-        case UP:
-            keyPressed = checkKeyIsAllowed(e.keyCode);
-            break;
+    case W:
+    case UP:
+        keyPressed = checkKeyIsAllowed(e.keyCode);
+        break;
 
-        case A:
-        case LEFT:
-            keyPressed = checkKeyIsAllowed(e.keyCode);
-            break;
+    case A:
+    case LEFT:
+        keyPressed = checkKeyIsAllowed(e.keyCode);
+        break;
 
-        case D:
-        case RIGHT:
-            keyPressed = checkKeyIsAllowed(e.keyCode);
-            break;
+    case D:
+    case RIGHT:
+        keyPressed = checkKeyIsAllowed(e.keyCode);
+        break;
 
-        default:
-            break;
+    default:
+        break;
     }
 });
 
 function checkKeyIsAllowed(tempKey) {
-    if (tempKey == DOWN) {
+    if (tempKey == DOWN)
         return (keyPressed != UP) ? tempKey : keyPressed;
-    } else if (tempKey == UP) {
+    else if (tempKey == UP)
         return (keyPressed != DOWN) ? tempKey : keyPressed;
-    } else if (tempKey == RIGHT) {
+    else if (tempKey == RIGHT)
         return (keyPressed != LEFT) ? tempKey : keyPressed;
-    } else if (tempKey == LEFT) {
+    else if (tempKey == LEFT)
         return (keyPressed != RIGHT) ? tempKey : keyPressed;
-    }
 
-    if (tempKey == S) {
+
+    if (tempKey == S)
         return (keyPressed != W) ? tempKey : keyPressed;
-    } else if (tempKey == W) {
+    else if (tempKey == W)
         return (keyPressed != S) ? tempKey : keyPressed;
-    } else if (tempKey == D) {
+    else if (tempKey == D)
         return (keyPressed != A) ? tempKey : keyPressed;
-    } else if (tempKey == A) {
+    else if (tempKey == A)
         return (keyPressed != D) ? tempKey : keyPressed;
-    }
+
 }
 
-function gameOver(score) {
-  clearInterval(game);
+function gameOver() {
+    clearInterval(game);
 
-  document.getElementById("body").innerHTML = "<div id=result><a class=btn href=https://studioofvagueachievments.github.io/sovaopen/ role=button>Go Home</a></div>";
+    document.getElementById("body").innerHTML = "<div id=result><a class=btn href=https://studioofvagueachievments.github.io/sovaopen/ role=button>Go Home</a></div>";
 
-  document.getElementById("body").style.display = "flex";
-  document.getElementById("body").style.margin = "18em auto";
-  document.getElementById("body").style.justifyContent = "center";
+    document.getElementById("body").style.display = "flex";
+    document.getElementById("body").style.margin = "18em auto";
+    document.getElementById("body").style.justifyContent = "center";
 }
 
 function getNewPositionForFood() {
-    let xArr = yArr = [];
+    let xArr = [];
+    let yArr = [];
+
     let i = 0;
     while (i < snake.length) {
         if ((snake[i].x in xArr) !== 1)

@@ -8,13 +8,12 @@ body {
     background-color: #000;
     flex-flow: column;
 
-    /* center the elements */
+    /* center the elements about Y */
     justify-content: center;
 }
 
-.row {
-  justify-content: center;
-}
+/* center the elements about X */
+.row { justify-content: center; }
 
 /* Extra Small devices (landscape phones, 310px and up) */
 @media (min-width: 310px) {
@@ -23,11 +22,9 @@ body {
         width: 200px;
     }
 
-    .item {
-        margin: 10px auto;
-    }
+    .item { margin: 10px auto; }
 
-    /* Buttons */
+    /* Button */
     .btn {
         height: 60px;
         width: 200px;
@@ -69,11 +66,9 @@ body {
         width: 300px;
     }
 
-    .item {
-        margin: 15px auto;
-    }
+    .item { margin: 15px auto; }
 
-    /* Buttons */
+    /* Button */
     .btn {
         height: 70px;
         width: 300px;
