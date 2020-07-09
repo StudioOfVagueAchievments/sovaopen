@@ -51,6 +51,8 @@ var speed = 0;
 
 var game = setInterval(gameLoop, inter);
 
+// Main loop
+//
 function gameLoop() {
     clearCanvas();
     drawFood();
@@ -58,6 +60,8 @@ function gameLoop() {
     moveSnake();
 }
 
+// Translate block from end of snake to some direction
+//
 function moveSnake() {
     let i = snake.length - 1;
     while (i >= 0) {
@@ -80,6 +84,8 @@ function moveSnake() {
     }
 }
 
+// Push block from end of snake to screen
+//
 function drawSnake() {
     if (IsEatFood(snake[snake.length - 1].x, snake[snake.length - 1].y)) {
         score += 10;
@@ -96,11 +102,20 @@ function drawSnake() {
         ctx.fillStyle = "#080";
         ctx.fillRect(snake[i].x, snake[i].y, snakeWidth, snakeHeight);
 
-        if (IsCollided(snake[snake.length - 1].x, snake[snake.length - 1].y))
-            gameOver(score);
+        if (IsCollided(snake[snake.length - 1].x, snake[snake.length - 1].y)) {
+            clearInterval(game);
+
+            document.body.innerHTML = "<div id=result><a class=btn href=https://studioofvagueachievments.github.io/sovaopen/ role=button>Go Home</a></div>";
+
+            document.body.style.display = "flex";
+            document.body.style.margin = "18em auto";
+            document.body.style.justifyContent = "center";
+        }
     }
 }
 
+// Add block at the beginning of snake
+//
 async function makeSnakeBigger() {
     snake.unshift({
         x: snake[snake.length - 1].oldX,
@@ -108,12 +123,16 @@ async function makeSnakeBigger() {
     });
 }
 
+// Condition if snake collided
+//
 function IsCollided(x, y) {
     return snake.filter(function(value, index) {
         return index != snake.length - 1 && value.x == x && value.y == y;
     }).length > 0 || x == -10 || x == canvas.width || y == -10 || y == canvas.height;
 }
 
+// Spawn new food at random pos
+//
 async function drawFood() {
     ctx.fillStyle = "#922";
     if (food.eaten === true)
@@ -121,14 +140,20 @@ async function drawFood() {
     ctx.fillRect(food.x, food.y, snakeWidth, snakeHeight);
 }
 
+// Condition for acceleration function
+//
 function IsSpeed() {
     return (score / 10) % 5 == 0;
 }
 
+// Condition if snake in food
+//
 function IsEatFood(x, y) {
     return food.x == x && food.y == y;
 }
 
+// Acceleration
+//
 function didSpeed() {
     speed += 0.99;
     inter *= speed;
@@ -136,10 +161,14 @@ function didSpeed() {
     game = setInterval(gameLoop, inter);
 }
 
+// Clear screen
+//
 async function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+// Create buttons
+//
 async function initMobile() {
     document.getElementById("left").addEventListener("click", function() {
         keyPressed = checkKeyIsAllowed(LEFT);
@@ -158,6 +187,8 @@ async function initMobile() {
     }, false);
 }
 
+// Keys
+//
 document.addEventListener("keydown", function(e) {
     switch (e.keyCode) {
     case S:
@@ -185,6 +216,8 @@ document.addEventListener("keydown", function(e) {
     }
 });
 
+// Is it key or not
+//
 function checkKeyIsAllowed(tempKey) {
     if (tempKey == DOWN)
         return (keyPressed != UP) ? tempKey : keyPressed;
@@ -207,16 +240,8 @@ function checkKeyIsAllowed(tempKey) {
 
 }
 
-function gameOver() {
-    clearInterval(game);
-
-    document.body.innerHTML = "<div id=result><a class=btn href=https://studioofvagueachievments.github.io/sovaopen/ role=button>Go Home</a></div>";
-
-    document.body.style.display = "flex";
-    document.body.style.margin = "18em auto";
-    document.body.style.justifyContent = "center";
-}
-
+// New food
+//
 function getNewPositionForFood() {
     let xArr = [];
     let yArr = [];
@@ -227,11 +252,13 @@ function getNewPositionForFood() {
             xArr.push(snake[i].x);
         if ((snake[i].y in yArr) === -1)
             yArr.push(snake[i].y);
-        i++;
+        ++i;
     }
     return getEmptyXY(xArr, yArr);
 }
 
+// Random XY
+//
 function getEmptyXY(xArr, yArr) {
     let newX = getRandomNumber(canvas.width - 10, 10);
     let newY = getRandomNumber(canvas.height - 10, 10);
@@ -242,6 +269,8 @@ function getEmptyXY(xArr, yArr) {
     } : getEmptyXY(xArr, yArr);
 }
 
+// Simplify random function
+//
 function getRandomNumber(max, multipleOf) {
     let result = Math.floor(Math.random() * max);
     return (result % 10 == 0) ? result : result + (multipleOf - result % 10);
