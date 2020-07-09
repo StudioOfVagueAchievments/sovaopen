@@ -210,11 +210,11 @@ function checkKeyIsAllowed(tempKey) {
 function gameOver() {
     clearInterval(game);
 
-    document.getElementById("body").innerHTML = "<div id=result><a class=btn href=https://studioofvagueachievments.github.io/sovaopen/ role=button>Go Home</a></div>";
+    document.body.innerHTML = "<div id=result><a class=btn href=https://studioofvagueachievments.github.io/sovaopen/ role=button>Go Home</a></div>";
 
-    document.getElementById("body").style.display = "flex";
-    document.getElementById("body").style.margin = "18em auto";
-    document.getElementById("body").style.justifyContent = "center";
+    document.body.style.display = "flex";
+    document.body.style.margin = "18em auto";
+    document.body.style.justifyContent = "center";
 }
 
 function getNewPositionForFood() {
@@ -244,5 +244,5 @@ function getEmptyXY(xArr, yArr) {
 
 function getRandomNumber(max, multipleOf) {
     let result = Math.floor(Math.random() * max);
-    return result = (result % 10 == 0) ? result : result + (multipleOf - result % 10);
+    return (result % 10 == 0) ? result : result + (multipleOf - result % 10);
 }

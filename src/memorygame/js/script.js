@@ -6,7 +6,7 @@ var data = {
 };
 
 /* Event Click To .menu-item */
-var i = 0;
+let i = 0;
 while (i < document.getElementsByClassName("menu-item").length) {
     document.getElementsByClassName("menu-item")[i].addEventListener("click", function() {
         document.getElementById("menu").style.display = "none";
@@ -43,7 +43,7 @@ while (i < document.getElementsByClassName("menu-item").length) {
                     let first = document.getElementsByClassName("clicked")[0];
                     let second = document.getElementsByClassName("clicked")[1];
 
-                    const _expr = parseInt(document.getElementsByClassName("clicked")[0].dataset.num === document.getElementsByClassName("clicked")[1].dataset.num);
+                    const _expr = Number(document.getElementsByClassName("clicked")[0].dataset.num === document.getElementsByClassName("clicked")[1].dataset.num);
                     switch (_expr) {
                     case 1:  // Good
                         /* Change score */
@@ -75,7 +75,7 @@ while (i < document.getElementsByClassName("menu-item").length) {
     i++;
 }  // document.getElementsByClassName('menu-item').length
 
-function buildDeck(rows) {
+const buildDeck = (rows) => {
     /* Temporary variables */
     let pics = [];
 
@@ -88,8 +88,8 @@ function buildDeck(rows) {
     /* Randomizing */
     i = rows * rows;
     while (i--) {
-        let rand = getRandomInt(rows * rows / 2);
-        let temp = pics[i];
+        const rand = getRandom(rows * rows / 2);
+        const temp = pics[i];
         pics[i] = pics[rand];
         pics[rand] = temp;
     }
@@ -100,19 +100,19 @@ function buildDeck(rows) {
     case 4:
         document.body.style.margin = "16em auto";
         document.body.innerHTML = "<div id=deck style=grid-template-columns:repeat(4,1fr);></div>";
-        document.body.innerHTML += "<span id=attCounter>0</span>";
         break;
     case 6:
         document.body.style.margin = "10em auto";
         document.body.innerHTML = "<div id=deck style=grid-template-columns:repeat(6,1fr);></div>";
-        document.body.innerHTML += "<span id=attCounter>0</span>";
         break;
     case 8:
         document.body.style.margin = "3em auto";
         document.body.innerHTML = "<div id=deck style=grid-template-columns:repeat(8,1fr);></div>";
-        document.body.innerHTML += "<span id=attCounter>0</span>";
         break;
     }
+
+    document.body.innerHTML += "<span id=attCounter>0</span>";
+
 
     /* Draw cell */
     i = rows * rows;
@@ -120,10 +120,10 @@ function buildDeck(rows) {
         const space = " ";
         document.getElementById("deck").innerHTML += "<span" + space + "class=cell" + space + "data-num=" + pics[i] + "></span>";
     }
-}
+};
 
-function gameOver() {
-    document.body.innerHTML = "<div id=result style=grid-template-columns:repeat(1,1fr);>" +
+const gameOver = () => {
+    document.body.innerHTML = "<div id=result style=grid-template-columns:1fr;>" +
         "<p>difficult:" + data.difficult + "</p>" +
         "<p>errors:" + data.errors + "</p>" +
         "<p>success:" + data.counter + "</p>" +
@@ -133,8 +133,6 @@ function gameOver() {
 
 
     // document.body.style.display = "flex";
-}
+};
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
+const getRandom = (x) => Math.floor(Math.random() * x);
