@@ -1,4 +1,32 @@
-var canvas = document.getElementById("canvas");
+class Key {
+    constructor() {
+        this.data = DOWN;
+    }
+
+    // Is it key or not
+    //
+    checkKeyIsAllowed(_tempKey) {
+        if (_tempKey == DOWN)
+            this.data = (this.data != UP) ? _tempKey : this.data;
+        else if (_tempKey == UP)
+            this.data = (this.data != DOWN) ? _tempKey : this.data;
+        else if (_tempKey == RIGHT)
+            this.data = (this.data != LEFT) ? _tempKey : this.data;
+        else if (_tempKey == LEFT)
+            this.data = (this.data != RIGHT) ? _tempKey : this.data;
+
+        if (_tempKey == S)
+            this.data = (this.data != W) ? _tempKey : this.data;
+        else if (_tempKey == W)
+            this.data = (this.data != S) ? _tempKey : this.data;
+        else if (_tempKey == D)
+            this.data = (this.data != A) ? _tempKey : this.data;
+        else if (_tempKey == A)
+            this.data = (this.data != D) ? _tempKey : this.data;
+    }
+}
+
+const canvas = document.getElementById("canvas");
 
 if (window.innerWidth > 1200) {
     canvas.width = 1280;
@@ -20,7 +48,7 @@ if (window.innerWidth > 1200) {
 
 const ctx = canvas.getContext("2d");
 
-var snake = [
+const snake = [
     { x: 50, y: 80, oldX: 0, oldY: 0 },
     { x: 50, y: 90, oldX: 0, oldY: 0 },
     { x: 50, y: 100, oldX: 0, oldY: 0 },
@@ -28,11 +56,8 @@ var snake = [
     { x: 50, y: 120, oldX: 0, oldY: 0 },
     { x: 50, y: 130, oldX: 0, oldY: 0 }
 ];
-var food = { x: 200, y: 200, eaten: false };
 
-const snakeWidth = 10;
-const snakeHeight = 10;
-const blockSize = 10;
+const food = new Food(canvas);
 
 const LEFT = 37;
 const UP = 38;
@@ -44,50 +69,51 @@ const A = 65;
 const S = 83;
 const D = 68;
 
-var keyPressed = DOWN;
+const keyPressed = new Key();
 var score = 0;
 var inter = 60;
 var speed = 0;
 
-var game = setInterval(gameLoop, inter);
+let game = setInterval(gameLoop, 60);
 
 // Main loop
 //
 function gameLoop() {
     clearCanvas();
-    drawFood();
+    food.draw(ctx, snake);
     drawSnake();
     moveSnake();
 }
 
 // Translate block from end of snake to some direction
 //
-function moveSnake() {
+const moveSnake = () => {
     let i = snake.length - 1;
     while (i >= 0) {
         snake[i].oldX = snake[i].x;
         snake[i].oldY = snake[i].y;
-        if (i === snake.length - 1) {
-            if (keyPressed == DOWN || keyPressed == S)
-                snake[i].y += blockSize;
-            else if (keyPressed == UP || keyPressed == W)
-                snake[i].y -= blockSize;
-            else if (keyPressed == RIGHT || keyPressed == D)
-                snake[i].x += blockSize;
-            else if (keyPressed == LEFT || keyPressed == A)
-                snake[i].x -= blockSize;
+
+        if (i === (snake.length - 1)) {
+            if (keyPressed.data === DOWN || keyPressed.data === S)
+                snake[i].y += 10;
+            else if (keyPressed.data === UP || keyPressed.data === W)
+                snake[i].y -= 10;
+            else if (keyPressed.data === RIGHT || keyPressed.data === D)
+                snake[i].x += 10;
+            else if (keyPressed.data === LEFT || keyPressed.data === A)
+                snake[i].x -= 10;
         } else {
             snake[i].x = snake[i + 1].oldX;
             snake[i].y = snake[i + 1].oldY;
         }
         --i;
     }
-}
+};
 
 // Push block from end of snake to screen
 //
-function drawSnake() {
-    if (IsEatFood(snake[snake.length - 1].x, snake[snake.length - 1].y)) {
+const drawSnake = () => {
+    if (food.IsEat(snake[snake.length - 1].x, snake[snake.length - 1].y)) {
         score += 10;
         document.getElementById("score").innerHTML = score;
         food.eaten = true;
@@ -100,7 +126,7 @@ function drawSnake() {
     let i = snake.length;
     while (--i) {
         ctx.fillStyle = "#080";
-        ctx.fillRect(snake[i].x, snake[i].y, snakeWidth, snakeHeight);
+        ctx.fillRect(snake[i].x, snake[i].y, 10, 10);
 
         if (IsCollided(snake[snake.length - 1].x, snake[snake.length - 1].y)) {
             clearInterval(game);
@@ -112,7 +138,7 @@ function drawSnake() {
             document.body.style.justifyContent = "center";
         }
     }
-}
+};
 
 // Add block at the beginning of snake
 //
@@ -125,41 +151,26 @@ async function makeSnakeBigger() {
 
 // Condition if snake collided
 //
-function IsCollided(x, y) {
+const IsCollided = (x, y) => {
     return snake.filter(function(value, index) {
         return index != snake.length - 1 && value.x == x && value.y == y;
     }).length > 0 || x == -10 || x == canvas.width || y == -10 || y == canvas.height;
-}
-
-// Spawn new food at random pos
-//
-async function drawFood() {
-    ctx.fillStyle = "#922";
-    if (food.eaten === true)
-        food = getNewPositionForFood();
-    ctx.fillRect(food.x, food.y, snakeWidth, snakeHeight);
-}
+};
 
 // Condition for acceleration function
 //
-function IsSpeed() {
+const IsSpeed = () => {
     return (score / 10) % 5 == 0;
-}
-
-// Condition if snake in food
-//
-function IsEatFood(x, y) {
-    return food.x == x && food.y == y;
-}
+};
 
 // Acceleration
 //
-function didSpeed() {
+const didSpeed = () => {
     speed += 0.99;
     inter *= speed;
 
     game = setInterval(gameLoop, inter);
-}
+};
 
 // Clear screen
 //
@@ -169,109 +180,49 @@ async function clearCanvas() {
 
 // Create buttons
 //
-async function initMobile() {
-    document.getElementById("left").addEventListener("click", function() {
-        keyPressed = checkKeyIsAllowed(LEFT);
+const initMobile = () => {
+    document.getElementById("left").addEventListener("click", () => {
+        keyPressed.checkKeyIsAllowed(LEFT);
     }, false);
 
-    document.getElementById("right").addEventListener("click", function() {
-        keyPressed = checkKeyIsAllowed(RIGHT);
+    document.getElementById("right").addEventListener("click", () => {
+        keyPressed.checkKeyIsAllowed(RIGHT);
     }, false);
 
-    document.getElementById("up").addEventListener("click", function() {
-        keyPressed = checkKeyIsAllowed(UP);
+    document.getElementById("up").addEventListener("click", () => {
+        keyPressed.checkKeyIsAllowed(UP);
     }, false);
 
-    document.getElementById("down").addEventListener("click", function() {
-        keyPressed = checkKeyIsAllowed(DOWN);
+    document.getElementById("down").addEventListener("click", () => {
+        keyPressed.checkKeyIsAllowed(DOWN);
     }, false);
-}
+};
 
 // Keys
 //
-document.addEventListener("keydown", function(e) {
+document.addEventListener("keydown", e => {
     switch (e.keyCode) {
     case S:
     case DOWN:
-        keyPressed = checkKeyIsAllowed(e.keyCode);
+        keyPressed.checkKeyIsAllowed(e.keyCode);
         break;
 
     case W:
     case UP:
-        keyPressed = checkKeyIsAllowed(e.keyCode);
+        keyPressed.checkKeyIsAllowed(e.keyCode);
         break;
 
     case A:
     case LEFT:
-        keyPressed = checkKeyIsAllowed(e.keyCode);
+        keyPressed.checkKeyIsAllowed(e.keyCode);
         break;
 
     case D:
     case RIGHT:
-        keyPressed = checkKeyIsAllowed(e.keyCode);
+        keyPressed.checkKeyIsAllowed(e.keyCode);
         break;
 
     default:
         break;
     }
 });
-
-// Is it key or not
-//
-function checkKeyIsAllowed(tempKey) {
-    if (tempKey == DOWN)
-        return (keyPressed != UP) ? tempKey : keyPressed;
-    else if (tempKey == UP)
-        return (keyPressed != DOWN) ? tempKey : keyPressed;
-    else if (tempKey == RIGHT)
-        return (keyPressed != LEFT) ? tempKey : keyPressed;
-    else if (tempKey == LEFT)
-        return (keyPressed != RIGHT) ? tempKey : keyPressed;
-
-
-    if (tempKey == S)
-        return (keyPressed != W) ? tempKey : keyPressed;
-    else if (tempKey == W)
-        return (keyPressed != S) ? tempKey : keyPressed;
-    else if (tempKey == D)
-        return (keyPressed != A) ? tempKey : keyPressed;
-    else if (tempKey == A)
-        return (keyPressed != D) ? tempKey : keyPressed;
-
-}
-
-// New food
-//
-function getNewPositionForFood() {
-    let xArr = [];
-    let yArr = [];
-
-    let i = 0;
-    while (i < snake.length) {
-        if ((snake[i].x in xArr) !== 1)
-            xArr.push(snake[i].x);
-        if ((snake[i].y in yArr) === -1)
-            yArr.push(snake[i].y);
-        ++i;
-    }
-    return getEmptyXY(xArr, yArr);
-}
-
-// Random XY
-//
-function getEmptyXY(xArr, yArr) {
-    let newX = getRandomNumber(canvas.width - 10, 10);
-    let newY = getRandomNumber(canvas.height - 10, 10);
-    return ((newX in xArr) !== -1 && (newY in yArr) !== -1) ? {
-        x: newX,
-        y: newY,
-        eaten: false
-    } : getEmptyXY(xArr, yArr);
-}
-
-// Simplify random function
-//
-function getRandomNumber(max, multipleOf) {
-    let result = Math.floor(Math.random() * max);
-    return (result % 10 == 0) ? result : result + (multipleOf - result % 10);
-}
