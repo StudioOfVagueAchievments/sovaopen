@@ -26,7 +26,7 @@ class Key {
     }
 }
 
-const canvas = document.getElementById("canvas");
+const canvas = document.querySelector("#canvas");
 
 if (window.innerWidth > 1200) {
     canvas.width = 1280;
@@ -94,13 +94,13 @@ const moveSnake = () => {
         snake[i].oldY = snake[i].y;
 
         if (i === (snake.length - 1)) {
-            if (keyPressed.data === DOWN || keyPressed.data === S)
+            if ((keyPressed.data === DOWN) || (keyPressed.data === S))
                 snake[i].y += 10;
-            else if (keyPressed.data === UP || keyPressed.data === W)
+            else if ((keyPressed.data === UP) || (keyPressed.data === W))
                 snake[i].y -= 10;
-            else if (keyPressed.data === RIGHT || keyPressed.data === D)
+            else if ((keyPressed.data === RIGHT) || (keyPressed.data === D))
                 snake[i].x += 10;
-            else if (keyPressed.data === LEFT || keyPressed.data === A)
+            else if ((keyPressed.data === LEFT) || (keyPressed.data === A))
                 snake[i].x -= 10;
         } else {
             snake[i].x = snake[i + 1].oldX;
@@ -115,7 +115,7 @@ const moveSnake = () => {
 const drawSnake = () => {
     if (food.IsEat(snake[snake.length - 1].x, snake[snake.length - 1].y)) {
         score += 10;
-        document.getElementById("score").innerHTML = score;
+        document.querySelector("#score").innerHTML = score;
         food.eaten = true;
         makeSnakeBigger();
 
@@ -131,11 +131,13 @@ const drawSnake = () => {
         if (IsCollided(snake[snake.length - 1].x, snake[snake.length - 1].y)) {
             clearInterval(game);
 
-            document.body.innerHTML = "<div id=result><a class=btn href=https://studioofvagueachievments.github.io/sovaopen/ role=button>Go Home</a></div>";
+            const body = document.querySelector("body");
 
-            document.body.style.display = "flex";
-            document.body.style.margin = "18em auto";
-            document.body.style.justifyContent = "center";
+            body.innerHTML = "<div id=result><a class=btn href=https://studioofvagueachievments.github.io/sovaopen/ role=button>Go Home</a></div>";
+
+            body.style.display = "flex";
+            body.style.margin = "18em auto";
+            body.style.justifyContent = "center";
         }
     }
 };

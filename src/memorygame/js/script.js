@@ -6,13 +6,12 @@ var data = {
 };
 
 /* Event Click To .menu-item */
-let i = 0;
-while (i < document.getElementsByClassName("menu-item").length) {
-    document.getElementsByClassName("menu-item")[i].addEventListener("click", function() {
-        document.getElementById("menu").style.display = "none";
+for (const item of document.getElementsByClassName("menu-item")) {
+    item.addEventListener("click", () => {
+        document.querySelector("#menu").style.display = "none";
 
-        data.difficult = parseInt(this.dataset.lvl);
-        const attempts = parseInt(this.dataset.attempts);
+        data.difficult = parseInt(item.dataset.lvl);
+        const attempts = parseInt(item.dataset.attempts);
 
         buildDeck(data.difficult);
 
@@ -32,23 +31,22 @@ while (i < document.getElementsByClassName("menu-item").length) {
         }  // data.difficult
 
         /* Event Click To .cell */
-        let j = 0;
-        while (j < document.getElementsByClassName("cell").length) {
-            document.getElementsByClassName("cell")[j].addEventListener("click", function() {
-                this.classList.add("clicked");
-                this.innerHTML = this.dataset.num;
+        for (const cell of document.getElementsByClassName("cell")) {
+            cell.addEventListener("click", () => {
+                cell.classList.add("clicked");
+                cell.innerHTML = cell.dataset.num;
 
                 /* Attempts clicked */
                 if (document.getElementsByClassName("clicked").length === 2) {
                     let first = document.getElementsByClassName("clicked")[0];
                     let second = document.getElementsByClassName("clicked")[1];
 
-                    const _expr = Number(document.getElementsByClassName("clicked")[0].dataset.num === document.getElementsByClassName("clicked")[1].dataset.num);
+                    const _expr = Number(first.dataset.num === second.dataset.num);
                     switch (_expr) {
                     case 1:  // Good
                         /* Change score */
                         data.counter += 1;
-                        document.getElementById("attCounter").innerHTML = data.counter;
+                        document.querySelector("#attCounter").innerHTML = data.counter;
 
                         first.remove();
                         second.remove();
@@ -69,11 +67,9 @@ while (i < document.getElementsByClassName("menu-item").length) {
                         gameOver();
                 }  // document.getElementsByClassName("clicked").length === 2
             }, false);
-            j++;
-        }  // document.getElementsByClassName('cell').length
+        }  // document.getElementsByClassName('cell')
     }, false);
-    i++;
-}  // document.getElementsByClassName('menu-item').length
+}  // document.getElementsByClassName('menu-item')
 
 const buildDeck = (rows) => {
     /* Temporary variables */
@@ -82,7 +78,7 @@ const buildDeck = (rows) => {
     let i = rows * rows / 2;
     while (i--) {
         pics[i] = i + 1;
-        pics[i + rows * rows / 2] = i + 1;
+        pics[i + ((rows * rows) / 2)] = i + 1;
     }
 
     /* Randomizing */
@@ -95,30 +91,32 @@ const buildDeck = (rows) => {
     }
 
     /* Styling */
-    document.body.style.display = "grid";
+    const body = document.querySelector("body");
+    body.style.display = "grid";
     switch (data.difficult) {
     case 4:
-        document.body.style.margin = "16em auto";
-        document.body.innerHTML = "<div id=deck style=grid-template-columns:repeat(4,1fr);></div>";
+        body.style.margin = "16em auto";
+        body.innerHTML = "<div id=deck style=grid-template-columns:repeat(4,1fr);></div>";
         break;
     case 6:
-        document.body.style.margin = "10em auto";
-        document.body.innerHTML = "<div id=deck style=grid-template-columns:repeat(6,1fr);></div>";
+        body.style.margin = "10em auto";
+        body.innerHTML = "<div id=deck style=grid-template-columns:repeat(6,1fr);></div>";
         break;
     case 8:
-        document.body.style.margin = "3em auto";
-        document.body.innerHTML = "<div id=deck style=grid-template-columns:repeat(8,1fr);></div>";
+        body.style.margin = "3em auto";
+        body.innerHTML = "<div id=deck style=grid-template-columns:repeat(8,1fr);></div>";
         break;
     }
 
-    document.body.innerHTML += "<span id=attCounter>0</span>";
+    body.innerHTML += "<span id=attCounter>0</span>";
 
 
     /* Draw cell */
+    const deck = document.querySelector("#deck");
     i = rows * rows;
     while (i--) {
         const space = " ";
-        document.getElementById("deck").innerHTML += "<span" + space + "class=cell" + space + "data-num=" + pics[i] + "></span>";
+        deck.innerHTML += "<span" + space + "class=cell" + space + "data-num=" + pics[i] + "></span>";
     }
 };
 
@@ -129,7 +127,7 @@ const gameOver = () => {
         "<p>success:" + data.counter + "</p>" +
         "<a href=https://studioofvagueachievments.github.io/sovaopen/ role=button>Go Home</a>" + "</div>";
 
-    document.getElementById("result").style.borderRadius = "1em";
+    document.querySelector("#result").style.borderRadius = "1em";
 
 
     // document.body.style.display = "flex";

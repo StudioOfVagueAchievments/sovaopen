@@ -12,6 +12,7 @@ class Food {
     async draw(_context, _snake) {
         if (this.eaten === true)
             this.setNewPosition(_snake);
+
         _context.fillStyle = "#922";
         _context.fillRect(this.x, this.y, 10, 10);
     }
@@ -19,7 +20,7 @@ class Food {
     // Condition if snake in food
     //
     IsEat(_x, _y) {
-        return this.x == _x && this.y == _y;
+        return (this.x == _x) && (this.y == _y);
     }
 
     // New food
@@ -28,13 +29,11 @@ class Food {
         let xArr = [];
         let yArr = [];
 
-        let i = 0;
-        while (i < _snake.length) {
-            if ((_snake[i].x in xArr) !== 1)
-                xArr.push(_snake[i].x);
-            if ((_snake[i].y in yArr) === -1)
-                yArr.push(_snake[i].y);
-            ++i;
+        for (const piece of _snake) {
+            if ((piece.x in xArr) !== 1)
+                xArr.push(piece.x);
+            if ((piece.y in yArr) === -1)
+                yArr.push(piece.y);
         }
 
         this.getEmptyXY(xArr, yArr);
@@ -43,14 +42,15 @@ class Food {
     // Random XY
     //
     getEmptyXY(_xArr, _yArr) {
-        let newX = getRandomNumber(this.canvas.width - 10, 10);
-        let newY = getRandomNumber(this.canvas.height - 10, 10);
+        const newX = getRandomNumber(this.canvas.width - 10, 10);
+        const newY = getRandomNumber(this.canvas.height - 10, 10);
 
-        if ((newX in _xArr) !== -1 && (newY in _yArr) !== -1) {
+        if (((newX in _xArr) !== -1) && ((newY in _yArr) !== -1)) {
             this.x = newX;
             this.y = newY;
             this.eaten = false;
-        } else this.getEmptyXY(_xArr, _yArr);
+        } else
+            this.getEmptyXY(_xArr, _yArr);
     }
 }
 

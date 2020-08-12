@@ -4,7 +4,7 @@ var nn = NeuralNetwork.deserialize(data);
 nn.setLearningRate(0.01);
 nn.train([1, 1, 0, 0], [1]);
 
-let canvas = document.getElementById("canvas");
+let canvas = document.querySelector("#canvas");
 if (window.innerWidth > 1200) {
     canvas.width = 1280;
     canvas.height = 853;
@@ -68,7 +68,7 @@ function moveSnake() {
         snake[i].oldY = snake[i].y;
 
         if (i === snake.length - 1) {
-            var syn = [ 0, 0, 0, 0 ];
+            let syn = [ 0, 0, 0, 0 ];
 
             if (food.x < snake[i].x) {
                 syn[3] = 1;
@@ -135,7 +135,7 @@ function moveSnake() {
 function drawSnake() {
     if (IsEatFood(snake[snake.length - 1].x, snake[snake.length - 1].y)) {
         score += 10;
-        document.getElementById("score").innerHTML = score;
+        document.querySelector("#score").innerHTML = score;
         food.eaten = true;
         makeSnakeBigger();
 
@@ -176,6 +176,7 @@ async function drawFood() {
     ctx.fillStyle = "#922";
     if (food.eaten === true)
         food = getNewPositionForFood();
+
     ctx.fillRect(food.x, food.y, snakeWidth, snakeHeight);
 }
 
@@ -218,32 +219,31 @@ function getNewPositionForFood() {
     let xArr = [];
     let yArr = [];
 
-    let i = 0;
-    while (i < snake.length) {
-        if ((snake[i].x in xArr) !== 1)
-            xArr.push(snake[i].x);
-        if ((snake[i].y in yArr) === -1)
-            yArr.push(snake[i].y);
-        i++;
+    for (const piece of snake) {
+        if ((piece.x in xArr) !== 1)
+            xArr.push(piece.x);
+        if ((piece.y in yArr) === -1)
+            yArr.push(piece.y);
     }
     return getEmptyXY(xArr, yArr);
 }
 
 // Random XY
 //
-function getEmptyXY(xArr, yArr) {
-    let newX = getRandomNumber(canvas.width - 10, 10);
-    let newY = getRandomNumber(canvas.height - 10, 10);
+const getEmptyXY = (xArr, yArr) => {
+    const newX = getRandomNumber(canvas.width - 10, 10);
+    const newY = getRandomNumber(canvas.height - 10, 10);
+
     return ((newX in xArr) !== -1 && (newY in yArr) !== -1) ? {
         x: newX,
         y: newY,
         eaten: false
     } : getEmptyXY(xArr, yArr);
-}
+};
 
 // Simplify random function
 //
-function getRandomNumber(max, multipleOf) {
-    let result = Math.floor(Math.random() * max);
+const getRandomNumber = (max, multipleOf) => {
+    const result = Math.floor(Math.random() * max);
     return (result % 10 == 0) ? result : result + (multipleOf - result % 10);
-}
+};
